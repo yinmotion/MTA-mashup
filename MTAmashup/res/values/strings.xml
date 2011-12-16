@@ -3,5 +3,6 @@
 
     <string name="greeting">MTA Mashup</string>
     <string name="app_name">MTA Mashup</string>
+    <string name="MTA_uptodate">MTA UpToDate</string>
 
 </resources>
