@@ -17,16 +17,16 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="220dp"
-            android:textColor="#FFFFFF"
-            android:textSize="42px"
             android:background="@drawable/title_bg"
             android:gravity="center_vertical|center_horizontal"
             android:shadowColor="#0000FF"
-            android:shadowRadius="8"
             android:shadowDx="0.0"
             android:shadowDy="0.0"
-            android:textStyle="bold"
-            android:text="@string/MTA_uptodate" />
+            android:shadowRadius="8"
+            android:text="@string/MTA_uptodate"
+            android:textColor="#FFFFFF"
+            android:textSize="42px"
+            android:textStyle="bold" />
 
         <AnalogClock
             android:id="@+id/analogClock1"
@@ -35,7 +35,6 @@
             android:layout_above="@+id/text"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="22dp" />
-
     </RelativeLayout>
-
+	
 </LinearLayout>
