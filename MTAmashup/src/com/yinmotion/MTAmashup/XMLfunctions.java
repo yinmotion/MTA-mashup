@@ -21,10 +21,12 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import android.util.Log;
+
 
 public class XMLfunctions {
 	public static final String PATH_MTA_STATUS = "http://www.mta.info/status/serviceStatus.txt";
-	
+	public static final String TAG = "XMLfunctions";
 
 	public final static Document XMLfromString(String xml){
 		
@@ -91,7 +93,8 @@ public class XMLfunctions {
 			} catch (IOException e) {
 				line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
 			}
-
+			
+			Log.v(TAG, "xml line = "+line);
 			return line;
 
 	}

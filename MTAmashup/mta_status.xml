@@ -1,12 +1,12 @@
-<service><responsecode>0</responsecode><timestamp>12/19/2011 3:16:04 PM</timestamp><subway>
+<service><responsecode>0</responsecode><timestamp>12/30/2011 6:53:17 PM</timestamp><subway>
   <line>
     <name>123</name>
     <status>GOOD SERVICE</status>
     <text></text>
     <plannedworkheadline></plannedworkheadline>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time>11:30AM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 4:54PM</Time>
   </line>
   <line>
     <name>456</name>
@@ -14,8 +14,8 @@
     <text></text>
     <plannedworkheadline></plannedworkheadline>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time>12:15PM</Time>
+    <Date>12/29/2011</Date>
+    <Time> 4:36PM</Time>
   </line>
   <line>
     <name>7</name>
@@ -23,8 +23,8 @@
     <text></text>
     <plannedworkheadline></plannedworkheadline>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time>10:55AM</Time>
+    <Date>12/28/2011</Date>
+    <Time> 9:25AM</Time>
   </line>
   <line>
     <name>ACE</name>
@@ -32,8 +32,8 @@
     <text></text>
     <plannedworkheadline></plannedworkheadline>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time> 9:05AM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 7:35AM</Time>
   </line>
   <line>
     <name>BDFM</name>
@@ -41,8 +41,8 @@
     <text></text>
     <plannedworkheadline></plannedworkheadline>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time>11:35AM</Time>
+    <Date>12/29/2011</Date>
+    <Time> 4:36PM</Time>
   </line>
   <line>
     <name>G</name>
@@ -50,8 +50,8 @@
     <text></text>
     <plannedworkheadline></plannedworkheadline>
     <url></url>
-    <Date>12/09/2011</Date>
-    <Time>10:25PM</Time>
+    <Date>12/25/2011</Date>
+    <Time> 5:46AM</Time>
   </line>
   <line>
     <name>JZ</name>
@@ -59,8 +59,8 @@
     <text></text>
     <plannedworkheadline></plannedworkheadline>
     <url></url>
-    <Date>12/14/2011</Date>
-    <Time> 7:40AM</Time>
+    <Date>12/23/2011</Date>
+    <Time> 3:05PM</Time>
   </line>
   <line>
     <name>L</name>
@@ -68,8 +68,8 @@
     <text></text>
     <plannedworkheadline></plannedworkheadline>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time>10:30AM</Time>
+    <Date>12/28/2011</Date>
+    <Time> 6:59PM</Time>
   </line>
   <line>
     <name>NQR</name>
@@ -77,8 +77,8 @@
     <text></text>
     <plannedworkheadline></plannedworkheadline>
     <url></url>
-    <Date>12/13/2011</Date>
-    <Time> 5:15AM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 2:10PM</Time>
   </line>
   <line>
     <name>S</name>
@@ -104,8 +104,8 @@
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>12/16/2011</Date>
-    <Time> 2:35PM</Time>
+    <Date>12/23/2011</Date>
+    <Time> 5:45PM</Time>
   </line>
   <line>
     <name>B100 - B103</name>
@@ -143,16 +143,16 @@
 &lt;br /&gt;&lt;b&gt;_______________________________
 &lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;</text>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time> 3:06PM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 6:53PM</Time>
   </line>
   <line>
     <name>BXM1 - BXM18</name>
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>11/15/2011</Date>
-    <Time> 1:15PM</Time>
+    <Date>12/22/2011</Date>
+    <Time>12:30PM</Time>
   </line>
   <line>
     <name>M1 - M116</name>
@@ -207,16 +207,8 @@
 &lt;br /&gt;&lt;b&gt;_______________________________
 &lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;</text>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time> 3:06PM</Time>
-  </line>
-  <line>
-    <name>N1- N88</name>
-    <status>GOOD SERVICE</status>
-    <text></text>
-    <url></url>
-    <Date>12/01/2011</Date>
-    <Time> 1:49AM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 6:53PM</Time>
   </line>
   <line>
     <name>Q1 - Q113</name>
@@ -238,9 +230,9 @@
 &lt;br /&gt;
 &lt;br /&gt;&lt;font color=#000000&gt;&amp;#149; Please allow additional travel time. 
 &lt;br /&gt;&lt;/font&gt;&lt;b&gt;______________________________
-&lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;&lt;br /&gt;&lt;HTML&gt;&lt;BODY&gt;&lt;a style="cursor:pointer; text-decoration:underline" onclick=ShowHide(2);&gt;
+&lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;&lt;br /&gt;&lt;HTML&gt;&lt;BODY&gt;&lt;a style="cursor:pointer; text-decoration:underline" onclick=ShowHide(3);&gt;
 &lt;b&gt;Holiday Bus Stop Changes
-&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;div id= 2 style="display:none;" &gt;&lt;/b&gt;Until Saturday Jan 7, 2012
+&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;div id= 3 style="display:none;" &gt;&lt;/b&gt;Until Saturday Jan 7, 2012
 &lt;br /&gt;
 &lt;br /&gt;&lt;font color=#000000&gt;Buses will not stop on Fifth Av at 49 and 50 Sts, or on Sixth Av at 49 and 50 Sts.
 &lt;br /&gt;
@@ -257,10 +249,10 @@
 &lt;br /&gt;
 &lt;br /&gt;&lt;font color=#000000&gt;&amp;#149; Please allow additional travel time. 
 &lt;br /&gt;&lt;/font&gt;&lt;b&gt;______________________________
-&lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;</text>
+&lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;&lt;br /&gt;</text>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time> 3:06PM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 6:53PM</Time>
   </line>
   <line>
     <name>QM1 - QM25</name>
@@ -278,21 +270,22 @@
 &lt;br /&gt;&lt;/font&gt;&lt;b&gt;______________________________
 &lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;&lt;br /&gt;&lt;HTML&gt;&lt;BODY&gt;&lt;a style="cursor:pointer; text-decoration:underline" onclick=ShowHide(2);&gt;
 &lt;b&gt;Holiday Bus Stop Changes
-&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;div id= 2 style="display:none;" &gt;&lt;/b&gt;Until Saturday Jan 7, 2012
+&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;div id= 2 style="display:none;" &gt;&lt;/b&gt;Until Saturday, Jan, 7 2012
 &lt;br /&gt;
-&lt;br /&gt;&lt;font color=#000000&gt;Buses will not stop on Fifth Av at 49 and 50 Sts, or on Sixth Av at 49 and 50 Sts.
+&lt;br /&gt;&lt;font color=#000000&gt;Buses will not stop on 5 Av at 49 and 50 Sts, or on 6 Av at 49 and 50 Sts.
 &lt;br /&gt;
-&lt;br /&gt;&lt;/font&gt;&lt;b&gt;QM10, QM12
-&lt;br /&gt;&lt;/b&gt;Use the 6 Av/51 St bus stop instead. 
+&lt;br /&gt;&lt;/font&gt;&lt;b&gt;QM10 and QM12
+&lt;br /&gt;&lt;/b&gt;Use the 6 Av at 51 St bus stop instead. 
 &lt;br /&gt;
-&lt;br /&gt;&lt;b&gt;QM15, QM16, QM17, QM18
-&lt;br /&gt;&lt;/b&gt;Use the 6 Av/48 St bus stop instead.
+&lt;br /&gt;&lt;b&gt;QM15, QM16, QM17 and QM18. 
+&lt;br /&gt;&lt;/b&gt;Use the 6 Av at 48 St bus stop instead.
 &lt;br /&gt;
 &lt;br /&gt;&lt;font color=#000000&gt;&amp;#149; Please allow additional travel time. 
 &lt;br /&gt;&lt;/font&gt;&lt;b&gt;______________________________
-&lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;&lt;br /&gt;&lt;HTML&gt;&lt;BODY&gt;&lt;a style="cursor:pointer; text-decoration:underline" onclick=ShowHide(3);&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;&lt;br /&gt;&lt;HTML&gt;&lt;BODY&gt;&lt;a style="cursor:pointer; text-decoration:underline" onclick=ShowHide(4);&gt;
 &lt;font color=#000000&gt;&lt;b&gt;QM16 Buses rerouted to Jacob Riis Park
-&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;div id= 3 style="display:none;" &gt;&lt;/b&gt;Beginning 5 AM, Monday, Dec 5
+&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;div id= 4 style="display:none;" &gt;&lt;/b&gt;Effective 5 AM, Monday, Dec 5
 &lt;br /&gt;
 &lt;br /&gt;The new terminus is adjacent to the west end of the Boathouse and opposite the parking lot, 
 &lt;br /&gt;where there is increased parking availability. Customers may park their cars at the Jacob Riis 
@@ -304,9 +297,9 @@
 &lt;br /&gt;
 &lt;br /&gt;All other QM16 bus stops in Queens and Midtown remain unchanged.
 &lt;br /&gt;&lt;b&gt;_________________________________
-&lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;&lt;br /&gt;&lt;HTML&gt;&lt;BODY&gt;&lt;a style="cursor:pointer; text-decoration:underline" onclick=ShowHide(4);&gt;
+&lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;&lt;br /&gt;&lt;HTML&gt;&lt;BODY&gt;&lt;a style="cursor:pointer; text-decoration:underline" onclick=ShowHide(5);&gt;
 &lt;b&gt;QM16 bus route change
-&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;div id= 4 style="display:none;" &gt;&lt;/b&gt;Beginning, Monday, Dec 5
+&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;div id= 5 style="display:none;" &gt;&lt;/b&gt;Effective, Monday, Dec 5
 &lt;br /&gt;
 &lt;br /&gt;Bus service to the Roxbury terminal on Beach 169 St at Rockaway Point Blvd
 &lt;br /&gt;Blvd will be terminated and a new terminal established on Rockaway Beach Blvd 
@@ -322,15 +315,15 @@
 &lt;br /&gt;&lt;/font&gt;&lt;b&gt;______________________________
 &lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;</text>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time> 3:06PM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 6:53PM</Time>
   </line>
   <line>
     <name>S40 - S98</name>
     <status>PLANNED WORK</status>
     <text><br /><br /><span style="font-size:x-large; font-weight:bold">Planned Detour</span><br /><br />&lt;HTML&gt;&lt;BODY&gt;&lt;a style="cursor:pointer; text-decoration:underline" onclick=ShowHide(1);&gt;
 &lt;b&gt;S55 and S74 Service to the Arthur Kill Correctional Facility is discontinued
-&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;div id= 1 style="display:none;" &gt;&lt;/b&gt;Effective Monday, Dec 5, 2011
+&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;div id= 1 style="display:none;" &gt;&lt;/b&gt;All times
 &lt;br /&gt;
 &lt;br /&gt;The first and last stop on the &lt;b&gt;S55&lt;/b&gt; will be on Bloomingdale Rd and Veteran's Rd East.
 &lt;br /&gt;
@@ -338,8 +331,8 @@
 &lt;br /&gt;&lt;b&gt;______________________________
 &lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;</text>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time> 3:06PM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 6:43PM</Time>
   </line>
   <line>
     <name>x1 - x68</name>
@@ -358,8 +351,8 @@
 &lt;br /&gt;&lt;/font&gt;&lt;b&gt;______________________________
 &lt;br /&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;</text>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time> 3:06PM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 6:43PM</Time>
   </line>
 </bus><BT>
   <line>
@@ -367,16 +360,16 @@
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>12/12/2011</Date>
-    <Time>10:26AM</Time>
+    <Date>12/28/2011</Date>
+    <Time> 8:26AM</Time>
   </line>
   <line>
     <name>Henry Hudson</name>
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>12/17/2011</Date>
-    <Time>11:18AM</Time>
+    <Date>12/27/2011</Date>
+    <Time> 1:05PM</Time>
   </line>
   <line>
     <name>Marine Parkway</name>
@@ -391,32 +384,32 @@
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>12/16/2011</Date>
-    <Time>11:22AM</Time>
+    <Date>12/22/2011</Date>
+    <Time> 1:02PM</Time>
   </line>
   <line>
     <name>Brooklyn-Battery</name>
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>12/08/2011</Date>
-    <Time> 7:54AM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 4:01PM</Time>
   </line>
   <line>
     <name>Queens Midtown</name>
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>12/14/2011</Date>
-    <Time> 7:47PM</Time>
+    <Date>12/29/2011</Date>
+    <Time> 5:19AM</Time>
   </line>
   <line>
     <name>Robert F. Kennedy</name>
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>12/17/2011</Date>
-    <Time> 9:23AM</Time>
+    <Date>12/30/2011</Date>
+    <Time>10:32AM</Time>
   </line>
   <line>
     <name>Cross Bay</name>
@@ -431,8 +424,8 @@
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time>10:06AM</Time>
+    <Date>12/30/2011</Date>
+    <Time>11:44AM</Time>
   </line>
 </BT><LIRR>
   <line>
@@ -440,90 +433,118 @@
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>12/15/2011</Date>
-    <Time> 6:26PM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 9:18AM</Time>
   </line>
   <line>
     <name>Babylon</name>
-    <status>DELAYS</status>
-    <text>&lt;P&gt;&lt;B&gt;LIRR-Babylon Delay&lt;/B&gt;&lt;/P&gt;
-&lt;P&gt;The 1:10PM train from Babylon due Penn at 2:23PM, is operating 13 minutes late due to heavy travel from the NYPD funeral. &lt;BR&gt;&lt;/P&gt;
-&lt;P&gt;.&lt;/P&gt;</text>
+    <status>SERVICE CHANGE</status>
+    <text>&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;B style="mso-bidi-font-weight: normal"&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;LIRR- Babylon&lt;/SPAN&gt;&lt;/B&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;B style="mso-bidi-font-weight: normal"&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;&lt;/SPAN&gt;&lt;/B&gt;&amp;nbsp;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;B style="mso-bidi-font-weight: normal"&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;&lt;/SPAN&gt;&lt;/B&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;The LIRR will provide additional trains to and from Penn Station for the New Year's holiday. &lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;&lt;?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/SPAN&gt;&amp;nbsp;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;&lt;o:p&gt;&amp;nbsp;&lt;/o:p&gt;&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;&lt;EM&gt;Note: The 5:59 PM from Penn Station to Babylon will not operate on Friday, December 30.&lt;SPAN style="mso-spacerun: yes"&gt;&amp;nbsp; &lt;/SPAN&gt;Customers will be accommodated by the 6:05 PM from Penn Station, which will make all stops from Merrick to Babylon that day.&lt;o:p&gt;&lt;/o:p&gt;&lt;/EM&gt;&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;&lt;o:p&gt;&amp;nbsp;&lt;/o:p&gt;&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/SPAN&gt;&amp;nbsp;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;&lt;STRONG&gt;On Saturday, December 31, there will be two extra trains from Babylon to NY:&lt;o:p&gt;&lt;/o:p&gt;&lt;/STRONG&gt;&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;-A&lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt; 6:19PM, making all stops to Lynbrook, then Jamaica and Penn Station.&lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;-A &lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;7:19 PM, making all stops to Lynbrook, then Jamaica and Penn Station.&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;/SPAN&gt;&amp;nbsp;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;/SPAN&gt;&amp;nbsp;&lt;/P&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;&lt;STRONG&gt;On Sunday, January 1, there will be four extra trains from NY to Babylon&lt;/STRONG&gt;:&lt;o:p&gt;&lt;/o:p&gt;&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;-A &lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;1:11AM stopping at Jamaica, Lynbrook, then all stops to Babylon.&lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;-A &lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;2:11AM stopping at Jamaica, Lynbrook, then all stops to Babylon.&lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;-A &lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;2:59AM stopping at Jamaica, Lynbrook, then all stops to Babylon.&lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'"&gt;-A &lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;3:29AM stopping at Jamaica, Lynbrook, then all stops to Babylon.&lt;/SPAN&gt;&lt;/SPAN&gt;&lt;/P&gt;</text>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time> 2:04PM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 6:16PM</Time>
   </line>
   <line>
     <name>Far Rockaway</name>
-    <status>GOOD SERVICE</status>
-    <text></text>
+    <status>SERVICE CHANGE</status>
+    <text>&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;B style="mso-bidi-font-weight: normal"&gt;&lt;SPAN style="FONT-FAMILY: 'Times','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;LIRR â€“ Far Rockaway&lt;/SPAN&gt;&lt;/B&gt;&lt;SPAN style="FONT-FAMILY: 'Times','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;BR&gt;The LIRR will provide additional trains to and from Penn Station for the New Year's holiday. &lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;STRONG&gt;On Friday, December 30, there will be one extra train traveling from NY to Far Rockaway:&lt;BR&gt;&lt;/STRONG&gt;- A 3:48 PM stopping at Locust Manor, Laurelton, Rosedale, Valley Stream, then all stops to Far Rockaway&lt;/SPAN&gt;&lt;/P&gt;</text>
     <url></url>
-    <Date>12/14/2011</Date>
-    <Time>10:02PM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 5:18PM</Time>
   </line>
   <line>
     <name>Hempstead</name>
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>12/15/2011</Date>
-    <Time> 7:19PM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 9:41AM</Time>
   </line>
   <line>
     <name>Long Beach</name>
-    <status>GOOD SERVICE</status>
-    <text></text>
+    <status>SERVICE CHANGE</status>
+    <text>&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;B style="mso-bidi-font-weight: normal"&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;LIRR- Long Beach&lt;/SPAN&gt;&lt;/B&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;The LIRR will provide additional trains to and from Penn Station for the New Year's holiday. &lt;BR&gt;&lt;STRONG&gt;On Sunday, January 1, there will be one extra train returning from NY to Long Beach:&lt;BR&gt;&lt;/STRONG&gt;-A 2:44AM stopping at Jamaica, Valley Stream, Lynbrook, then all stops to Long Beach.&lt;/SPAN&gt;&lt;/P&gt;</text>
     <url></url>
-    <Date>12/16/2011</Date>
-    <Time> 8:40AM</Time>
+    <Date>12/30/2011</Date>
+    <Time>11:59AM</Time>
   </line>
   <line>
     <name>Montauk</name>
-    <status>GOOD SERVICE</status>
-    <text></text>
+    <status>SERVICE CHANGE</status>
+    <text>&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;B style="mso-bidi-font-weight: normal"&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;LIRR- Montauk&lt;/SPAN&gt;&lt;/B&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;/SPAN&gt;&lt;/P&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;The LIRR will provide additional trains to and from Penn Station for the New Year's holiday.&lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;BR&gt;&lt;BR&gt;&lt;STRONG&gt;On Saturday, December 31, there will be one extra train to NY:&lt;/STRONG&gt;&lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;BR&gt;-From Speonk at 7:11 PM, making all stops to Babylon, then Jamaica and Penn Station.&lt;/SPAN&gt; 
+&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;STRONG&gt;&lt;/STRONG&gt;&lt;/SPAN&gt;&amp;nbsp;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;STRONG&gt;On Sunday, January 1, there will be one extra train returning from NY:&lt;BR&gt;&lt;/STRONG&gt;-A 1:29 AM stopping at Jamaica, Rockville Centre, then all stops to Speonk.&lt;/SPAN&gt;&lt;/P&gt;</text>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time> 2:25PM</Time>
+    <Date>12/30/2011</Date>
+    <Time>12:05PM</Time>
   </line>
   <line>
     <name>Oyster Bay</name>
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time> 2:35PM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 9:42AM</Time>
   </line>
   <line>
     <name>Port Jefferson</name>
-    <status>GOOD SERVICE</status>
-    <text></text>
+    <status>SERVICE CHANGE</status>
+    <text>&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;B style="mso-bidi-font-weight: normal"&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;LIRR- Port Jefferson&lt;/SPAN&gt;&lt;/B&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;The LIRR will provide additional trains to and from Penn Station for the New Year's holiday. &lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Symbol"&gt;&lt;STRONG&gt;On Saturday, December 31, there will be two extra trains to NY:&lt;BR&gt;&lt;/STRONG&gt;-&lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Symbol"&gt;From Huntington at 7:08 PM, making all stops to Jamaica, then Penn Station.&lt;BR&gt;-From &lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;Port Jefferson at 6:45 PM, making all stops to Huntington, then Hicksville, Jamaica and Penn Station&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;STRONG&gt;On Sunday, January 1, there will be two extra trains returning from NY:&lt;BR&gt;&lt;/STRONG&gt;-A 2:14AM stopping at Jamaica, New Hyde Park, then all stops to Huntington.&lt;BR&gt;-A 3:12AM stopping at Jamaica, New Hyde Park, then all stops to Port Jefferson.&lt;/SPAN&gt;&lt;/P&gt;</text>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time> 9:55AM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 6:04PM</Time>
   </line>
   <line>
     <name>Port Washington</name>
-    <status>GOOD SERVICE</status>
-    <text></text>
+    <status>SERVICE CHANGE</status>
+    <text>&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;B style="mso-bidi-font-weight: normal"&gt;&lt;SPAN style="FONT-FAMILY: 'Times','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;LIRR â€“ Port Washington&lt;/SPAN&gt;&lt;/B&gt;&lt;SPAN style="FONT-FAMILY: 'Times','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;BR&gt;The LIRR will provide additional trains to and from Penn Station for the New Year's holiday. &lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&amp;nbsp;On Saturday, December 31, there will be three extra trains from Port Washington to NY:&lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;BR&gt;- A 6:09 PM train leaving Port Washington, making all stops to Woodside, then Penn Station.&lt;BR&gt;- A 7:09 PM train leaving Port Washington, making all stops to Woodside, then Penn Station.&lt;BR&gt;- An 8:09 PM train leaving Port Washington, making all stops to Woodside, then Penn Station.&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;On Sunday, January 1, there will be three extra trains from NY to Port Washington:&lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;BR&gt;- A &lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;12:35 AM train stopping at Woodside, Flushing-Main St., then all stops to Port Washington.&lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;BR&gt;- A &lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;2:19 AM train stopping at Woodside, Flushing-Main St., then all stops to Port Washington.&lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;BR&gt;- A &lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;4:19 AM train stopping at Woodside, Flushing-Main St., then all stops to Port Washington.&lt;/SPAN&gt;&lt;/P&gt;</text>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time> 1:13PM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 6:06PM</Time>
   </line>
   <line>
     <name>Ronkonkoma</name>
-    <status>GOOD SERVICE</status>
-    <text></text>
+    <status>SERVICE CHANGE</status>
+    <text>&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;B&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;LIRR- Ronkonkoma &lt;/SPAN&gt;&lt;/B&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;The LIRR will provide additional trains to and from Penn Station for the New Year's holiday. &lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;STRONG&gt;On Saturday, December 31, there will be two extra trains from Ronkonkoma to NY:&lt;BR&gt;&lt;/STRONG&gt;- A 5:09PM train, making all stops (with the exception of Pinelawn) to Hicksville, then Mineola, Jamaica, and Penn Station.&lt;BR&gt;- A 7:21PM train, making all stops (with the exception of Pinelawn) to Hicksville, then Mineola, Jamaica, and Penn Station.&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;&lt;/SPAN&gt;&amp;nbsp;&lt;/P&gt;
+&lt;P style="LINE-HEIGHT: normal; MARGIN-BOTTOM: 0pt" class=MsoNormal&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Symbol"&gt;&lt;STRONG&gt;On Sunday, January 1, there will be three extra trains from NY to Ronkonkoma:&lt;BR&gt;&lt;/STRONG&gt;-A &lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Symbol"&gt;12:29AM stopping at Jamaica, Mineola, Hicksville, then all stops to Ronkonkoma (with the exception of Pinelawn).&lt;BR&gt;-A &lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Symbol"&gt;2:03AM stopping at Jamaica, Mineola, Hicksville, then all stops to Ronkonkoma (with the exception of Pinelawn).&lt;BR&gt;-A &lt;/SPAN&gt;&lt;SPAN style="FONT-FAMILY: 'Times New Roman','serif'; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"&gt;3:53AM stopping at Jamaica, Mineola, Hicksville, then all stops to Ronkonkoma (with the exception of Pinelawn).&lt;/SPAN&gt;&lt;/P&gt;</text>
     <url></url>
-    <Date>12/18/2011</Date>
-    <Time> 2:50AM</Time>
+    <Date>12/30/2011</Date>
+    <Time> 6:10PM</Time>
   </line>
   <line>
     <name>West Hempstead</name>
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>12/19/2011</Date>
-    <Time>12:00AM</Time>
+    <Date>12/27/2011</Date>
+    <Time> 4:15PM</Time>
   </line>
 </LIRR><MetroNorth>
   <line>
@@ -531,8 +552,8 @@
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>11/22/2011</Date>
-    <Time> 9:23AM</Time>
+    <Date>12/28/2011</Date>
+    <Time> 9:44AM</Time>
   </line>
   <line>
     <name>Harlem</name>
@@ -579,8 +600,8 @@
     <status>GOOD SERVICE</status>
     <text></text>
     <url></url>
-    <Date>11/02/2011</Date>
-    <Time> 8:55AM</Time>
+    <Date>12/20/2011</Date>
+    <Time> 7:57AM</Time>
   </line>
   <line>
     <name>Pascack Valley</name>

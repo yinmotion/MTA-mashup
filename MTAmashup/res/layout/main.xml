@@ -1,40 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/splash_map"
-    android:orientation="horizontal" >
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
+    android:orientation="vertical" 
+    android:layout_margin="0px">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+	<FrameLayout
+        android:id="@+id/frameLayoutTop"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content" >
+    <ImageView
+        android:id="@+id/splash_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/splash_top" />
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="fill_parent"
-            android:layout_height="80dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="220dp"
-            android:background="@drawable/title_bg"
-            android:gravity="center_vertical|center_horizontal"
-            android:shadowColor="#0000FF"
-            android:shadowDx="0.0"
-            android:shadowDy="0.0"
-            android:shadowRadius="8"
-            android:text="@string/MTA_uptodate"
-            android:textColor="#FFFFFF"
-            android:textSize="42px"
-            android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/splash_greenlight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/splash_greenlight"
+        android:paddingTop="233px"
+        android:visibility="invisible" />
 
-        <AnalogClock
-            android:id="@+id/analogClock1"
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/loader_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/loader_anim" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/text"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="22dp" />
-    </RelativeLayout>
-	
+            android:src="@drawable/splash_track" />
+
+        <ViewFlipper
+            android:id="@+id/loading_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" 
+            android:flipInterval="2000"
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="20sp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/wait_for_signal"
+                android:textColor="#535353"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/wait_for_signal"
+                android:textColor="#535353"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/wait_for_signal"
+                android:textColor="#535353"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </ViewFlipper>
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/splash_platform"
+        android:layout_width="wrap_content"
+        android:layout_height="163px"
+        android:src="@drawable/splash_platform" />
+
 </LinearLayout>
+
+<ImageView
+    android:id="@+id/splash_train"
+    android:layout_width="630px"
+    android:layout_height="wrap_content"
+    android:src="@drawable/splash_train"
+    android:paddingTop="193px" 
+    android:visibility="invisible"/>
+
+</FrameLayout>
