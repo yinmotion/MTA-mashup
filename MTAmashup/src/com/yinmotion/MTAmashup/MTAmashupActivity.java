@@ -46,11 +46,15 @@ public class MTAmashupActivity extends Activity {
 	private Timer loaderTimer;
 	public boolean dataLoaded;
 	
+	private XMLloaderParser xmlTask;
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        xmlTask = new XMLloaderParser();
         
         loaderTimer = new Timer();
         loaderTimer.schedule(new TimerTask() {
@@ -79,7 +83,8 @@ public class MTAmashupActivity extends Activity {
         		loaderAnim.start();
         		Log.v(TAG, "loaderAnim");
         		
-        		new LoadXMLTask().execute();
+        		xmlTask.execute();
+        		//new LoadXMLTask().execute();
         	}
         });
     }
@@ -92,7 +97,7 @@ public class MTAmashupActivity extends Activity {
     private Runnable checkDataLoaded = new Runnable() {
 		@Override
 		public void run() {
-			if(dataLoaded == true){
+			if(xmlTask.getDataLoaded() == true){
 				loaderTimer.cancel();
 				ImageView greenlt = (ImageView)findViewById(R.id.splash_greenlight);
 		        greenlt.setVisibility(0);
@@ -151,40 +156,5 @@ public class MTAmashupActivity extends Activity {
     	
     	//overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
 	}
-
-	public class LoadXMLTask extends AsyncTask<URL, Integer, String>{
-    	protected String doInBackground(URL... urls) {
-    		String line = null;
-
-			try {
-				
-				DefaultHttpClient httpClient = new DefaultHttpClient();
-				HttpPost httpPost = new HttpPost(PATH_MTA_STATUS);
-
-				HttpResponse httpResponse = httpClient.execute(httpPost);
-				HttpEntity httpEntity = httpResponse.getEntity();
-				line = EntityUtils.toString(httpEntity);
-				
-			} catch (UnsupportedEncodingException e) {
-				line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
-			} catch (MalformedURLException e) {
-				line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
-			} catch (IOException e) {
-				line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
-			}
-			
-			return line;
-        }
-
-        protected void onProgressUpdate(Integer... progress) {
-            //setProgressPercent(progress[0]);
-        }
-
-        protected void onPostExecute(String line) {
-	        Log.v(TAG, "xml line = "+line);
-            //showDialog("Downloaded " + result + " bytes");
-	        dataLoaded = true;
-        }
-    }
     
 }

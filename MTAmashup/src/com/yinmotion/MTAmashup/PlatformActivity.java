@@ -1,13 +1,14 @@
 package com.yinmotion.MTAmashup;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-public class PlatformActivity extends Activity {
+public class PlatformActivity extends ListActivity {
 	private ImageView platform;
 
 	public void onCreate(Bundle savedInstanceState) {

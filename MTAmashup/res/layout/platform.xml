@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/platform"
         android:layout_width="1065px"
         android:layout_height="800px"
@@ -16,6 +16,13 @@
             android:layout_height="wrap_content"
             android:src="@drawable/platform" />
 
-    </LinearLayout>
+        <ListView
+            android:id="@id/android:list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_weight="1"
+	 		android:drawSelectorOnTop="false" />
+
+    </FrameLayout>
 
 </LinearLayout>
