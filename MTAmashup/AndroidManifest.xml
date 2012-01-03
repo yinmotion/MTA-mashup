@@ -2,13 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yinmotion.MTAmashup"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0" android:installLocation="preferExternal">
     <uses-sdk android:minSdkVersion="10"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name" android:debuggable="true">
+        android:label="@string/app_name" 
+        android:debuggable="true" android:name="LineStatusData">
         <activity
             android:label="@string/app_name"
             android:name=".MTAmashupActivity" >

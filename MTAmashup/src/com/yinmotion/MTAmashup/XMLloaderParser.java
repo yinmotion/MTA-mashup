@@ -35,7 +35,7 @@ public class XMLloaderParser extends AsyncTask<URL, Integer, String> {
 	private static final String TAG = "XMLloaderParser";
 	private static final String PATH_MTA_STATUS = "http://www.mta.info/status/serviceStatus.txt";
 	private boolean _dataLoaded = false;
-
+	
 	@Override
 	protected String doInBackground(URL... urls) {
 		// TODO Auto-generated method stub
