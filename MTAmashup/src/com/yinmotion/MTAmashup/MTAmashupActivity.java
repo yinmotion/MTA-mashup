@@ -2,6 +2,7 @@ package com.yinmotion.MTAmashup;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Timer;
@@ -104,17 +105,27 @@ public class MTAmashupActivity extends Activity {
 		        loaderAnim.stop();
 		        loadingFlipper.stopFlipping();
 		        loadingFlipper.removeAllViews();
+		       
 		        
+		        setLineStatusData();
 		        slideTrainIn();
+		        
+		        
 		        //startPlatformAct();
 			}
 		}
 	};
-
+	
+	private void setLineStatusData() {
+		// TODO Auto-generated method stub
+		//Log.v(TAG, "setLineStatusData");
+		((LineStatusData)getApplication()).setStatusData(xmlTask.getDoc());
+	}
+	
 	@Override
     public void onWindowFocusChanged(boolean hasFocus){
     	super.onWindowFocusChanged(hasFocus);
-    	Log.v(TAG, "hasFocus = "+loaderAnim);
+    	//Log.v(TAG, "hasFocus = "+loaderAnim);
     	
     	if(hasFocus){
 //    		loaderAnim.start();
@@ -122,7 +133,9 @@ public class MTAmashupActivity extends Activity {
     	}
     }
 	
+
 	private void slideTrainIn() {
+		//Log.v(TAG, "slideTrainIn");
 		ImageView train = (ImageView)findViewById(R.id.splash_train);
 		Animation trainSlide = AnimationUtils.loadAnimation(this, R.anim.splash_train_slide);
 		//trainSlide.setFillAfter(true);

@@ -3,6 +3,7 @@ package com.yinmotion.MTAmashup;
 import org.w3c.dom.Document;
 
 import android.app.Application;
+import android.util.Log;
 
 /*
  * Store status data
@@ -13,6 +14,7 @@ public class LineStatusData extends Application {
 	
 	public void setStatusData(Document doc){
 		_doc = doc;
+		Log.v("LineStatusData", _doc.toString());
 	}
 	
 	public Document getStatusData(){

@@ -94,22 +94,9 @@ public class XMLfunctions {
 				line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
 			}
 			
-			Log.v(TAG, "xml line = "+line);
+			//Log.v(TAG, "xml line = "+line);
 			return line;
 
-	}
-	 
-	public static int numResults(Document doc){		
-		Node results = doc.getDocumentElement();
-		int res = -1;
-		
-		try{
-			res = Integer.valueOf(results.getAttributes().getNamedItem("count").getNodeValue());
-		}catch(Exception e ){
-			res = -1;
-		}
-		
-		return res;
 	}
 
 	public static String getValue(Element item, String str) {		

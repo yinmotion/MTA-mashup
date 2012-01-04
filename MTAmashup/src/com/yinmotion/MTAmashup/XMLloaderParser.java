@@ -35,11 +35,13 @@ public class XMLloaderParser extends AsyncTask<URL, Integer, String> {
 	private static final String TAG = "XMLloaderParser";
 	private static final String PATH_MTA_STATUS = "http://www.mta.info/status/serviceStatus.txt";
 	private boolean _dataLoaded = false;
+	private String _line;
+	private Document _doc;
 	
 	@Override
 	protected String doInBackground(URL... urls) {
 		// TODO Auto-generated method stub
-		String line = null;
+		_line = null;
 		
 		try {
 			
@@ -48,18 +50,20 @@ public class XMLloaderParser extends AsyncTask<URL, Integer, String> {
 
 			HttpResponse httpResponse = httpClient.execute(httpPost);
 			HttpEntity httpEntity = httpResponse.getEntity();
-			line = EntityUtils.toString(httpEntity);
+			_line = EntityUtils.toString(httpEntity);
+			
+			XMLfromString();
 			
 		} catch (UnsupportedEncodingException e) {
-			line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
+			_line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
 		} catch (MalformedURLException e) {
-			line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
+			_line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
 		} catch (IOException e) {
-			line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
+			_line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
 		}
 		
 		
-		return line;
+		return _line;
 	}
 	
 	 protected void onProgressUpdate(Integer... progress) {
@@ -67,9 +71,10 @@ public class XMLloaderParser extends AsyncTask<URL, Integer, String> {
      }
 
      protected void onPostExecute(String line) {
-	     Log.v(TAG, "xml line = "+line);
+	     //Log.v(TAG, "xml line = "+line);
          //showDialog("Downloaded " + result + " bytes");
 	     
+    	 //XMLfromString();
 	      _dataLoaded = true;
      }
      
@@ -77,9 +82,13 @@ public class XMLloaderParser extends AsyncTask<URL, Integer, String> {
     	 return _dataLoaded;
      }
      
-     public Document XMLfromString(String xml){
+     public Document getDoc(){
+    	 return _doc;
+     }
+     
+     public void XMLfromString(){
  		
- 		Document doc = null;
+ 		_doc = null;
  		
  		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
          try {
@@ -87,21 +96,19 @@ public class XMLloaderParser extends AsyncTask<URL, Integer, String> {
  			DocumentBuilder db = dbf.newDocumentBuilder();
  			
  			InputSource is = new InputSource();
- 	        is.setCharacterStream(new StringReader(xml));
- 	        doc = db.parse(is); 
+ 	        is.setCharacterStream(new StringReader(_line));
+ 	       _doc = db.parse(is); 
  	        
  		} catch (ParserConfigurationException e) {
  			System.out.println("XML parse error: " + e.getMessage());
- 			return null;
+ 			
  		} catch (SAXException e) {
  			System.out.println("Wrong XML file structure: " + e.getMessage());
-             return null;
+             
  		} catch (IOException e) {
  			System.out.println("I/O exeption: " + e.getMessage());
- 			return null;
- 		}
- 		       
-         return doc;
+ 			
+ 		} 
          
  	}
 

@@ -1,4 +1,5 @@
-<service><responsecode>0</responsecode><timestamp>12/30/2011 6:53:17 PM</timestamp><subway>
+<service><responsecode>0</responsecode><timestamp>12/30/2011 6:53:17 PM</timestamp>
+<subway>
   <line>
     <name>123</name>
     <status>GOOD SERVICE</status>
