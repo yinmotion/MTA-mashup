@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="greeting">MTA Mashup</string>
-    <string name="app_name">MTA Mashup</string>
+    <string name="greeting">MTA UPS DOWNS</string>
+    <string name="app_name">MTA UPS DOWNS</string>
     <string name="MTA_uptodate">MTA UpToDate</string>
     <string name="wait_for_signal">WAIT FOR SIGNAL</string>
 

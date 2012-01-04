@@ -51,9 +51,13 @@ public class MTAmashupActivity extends Activity {
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+        
+        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+        
         setContentView(R.layout.main);
+        
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.app_title);
         
         xmlTask = new XMLloaderParser();
         
@@ -160,6 +164,7 @@ public class MTAmashupActivity extends Activity {
 			}
 		});
 		train.startAnimation(trainSlide);
+		//trainSlide.setFillAfter(true);
 	}
     
     protected void startPlatformAct() {

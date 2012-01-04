@@ -24,9 +24,11 @@ public class PlatformActivity extends ListActivity {
 	private ImageView platform;
 	
 	public void onCreate(Bundle savedInstanceState) {
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.platform);
+        
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.app_title);
         
         //overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         
@@ -50,7 +52,7 @@ public class PlatformActivity extends ListActivity {
 			
 			Element e = (Element)nodes.item(i);
 			map.put("name", XMLfunctions.getValue(e, "name"));
-        	map.put("status", "Status:" + XMLfunctions.getValue(e, "status"));
+        	map.put("status", "Status: " + XMLfunctions.getValue(e, "status"));
         	mylist.add(map);			
 		}		
        
@@ -75,4 +77,5 @@ public class PlatformActivity extends ListActivity {
 //			}
 //		});
     }
+
 }
