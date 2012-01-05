@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="26dp"
-    android:background="#dfbf1f"
+    android:layout_height="25dp"
+    android:background="@drawable/bump_pattern_2"
     android:orientation="vertical" >
     
     	<ImageView
         android:id="@+id/app_title_logo"
         android:src="@drawable/app_title_logo"
-        android:layout_width="105dp"
-        android:layout_height="26dp"/>
+        android:layout_width="92dp"
+        android:layout_height="25dp"/>
 
     	<TextView
     	    android:id="@+id/textView1"

@@ -23,6 +23,7 @@ import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import android.content.res.XmlResourceParser;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -33,7 +34,7 @@ import android.util.Log;
 public class XMLloaderParser extends AsyncTask<URL, Integer, String> {
 
 	private static final String TAG = "XMLloaderParser";
-	private static final String PATH_MTA_STATUS = "http://www.mta.info/status/serviceStatus.txt";
+	private static final String PATH_MTA_STATUS = "http://yinmotion.com/mta_status/status.xml";
 	private boolean _dataLoaded = false;
 	private String _line;
 	private Document _doc;

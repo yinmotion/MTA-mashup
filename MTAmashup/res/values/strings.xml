@@ -5,5 +5,7 @@
     <string name="app_name">MTA UPS DOWNS</string>
     <string name="MTA_uptodate">MTA UpToDate</string>
     <string name="wait_for_signal">WAIT FOR SIGNAL</string>
+    <string name="ups">Ups</string>
+    <string name="downs">Downs</string>
 
 </resources>

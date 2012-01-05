@@ -69,7 +69,7 @@ public class MTAmashupActivity extends Activity {
 				// TODO Auto-generated method stub
 				loaderTimerMethod();
 			}
-		}, 5000, 1000);
+		}, 2000, 1000);
         
         loadingFlipper = (ViewFlipper)findViewById(R.id.loading_data);
         loadingFlipper.startFlipping();

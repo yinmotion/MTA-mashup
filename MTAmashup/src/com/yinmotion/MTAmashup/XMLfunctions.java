@@ -25,7 +25,6 @@ import android.util.Log;
 
 
 public class XMLfunctions {
-	public static final String PATH_MTA_STATUS = "http://www.mta.info/status/serviceStatus.txt";
 	public static final String TAG = "XMLfunctions";
 
 	public final static Document XMLfromString(String xml){
@@ -73,31 +72,6 @@ public class XMLfunctions {
 	     }
 	     return "";
 	 }
-		 
-	 public static String getXML(){	 
-			String line = null;
-
-			try {
-				
-				DefaultHttpClient httpClient = new DefaultHttpClient();
-				HttpPost httpPost = new HttpPost(PATH_MTA_STATUS);
-
-				HttpResponse httpResponse = httpClient.execute(httpPost);
-				HttpEntity httpEntity = httpResponse.getEntity();
-				line = EntityUtils.toString(httpEntity);
-				
-			} catch (UnsupportedEncodingException e) {
-				line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
-			} catch (MalformedURLException e) {
-				line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
-			} catch (IOException e) {
-				line = "<results status=\"error\"><msg>Can't connect to server</msg></results>";
-			}
-			
-			//Log.v(TAG, "xml line = "+line);
-			return line;
-
-	}
 
 	public static String getValue(Element item, String str) {		
 		NodeList n = item.getElementsByTagName(str);		
