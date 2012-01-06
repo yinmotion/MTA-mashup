@@ -18,12 +18,14 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class PlatformActivity extends Activity {
 	private static final String TAG = "PlatformActivity";
 	private ArrayList<Element> aUps;
+	private ArrayList<Element> aDowns;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
@@ -47,7 +49,11 @@ public class PlatformActivity extends Activity {
     		e.printStackTrace();
     	}
         
+        
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.app_title);
+        TextView tv = (TextView) findViewById(R.id.app_title_timestamp);
+        //Log.v(TAG, "title : "+tv);
+        tv.setText("@"+((LineStatusData)getApplication()).getTimestamp());
         
         ViewGroup platform = (ViewGroup) findViewById(R.id.platform_container); 
         
@@ -57,57 +63,17 @@ public class PlatformActivity extends Activity {
         
         aUps = ((LineStatusData)getApplication()).getUps();
         
-        Log.v(TAG, "aUps = "+aUps.size());
-        
         GridView upsGrid = (GridView) findViewById(R.id.ups_grid); 
-        upsGrid.setAdapter(new LineListAdapter());
+        upsGrid.setAdapter(new UpLineListAdapter());
         
+        //
+        	
+        View downView = LayoutInflater.from(getBaseContext()).inflate(R.layout.board_downs, null);
+        platform.addView(downView);
+        aDowns = ((LineStatusData) getApplication()).getDowns();
         
-//        ViewGroup upList = (ViewGroup) findViewById(R.id.board_up_list);
-//        for(int i = 0; i<aUps.size(); i++){
-//        	Element line = aUps.get(i);
-//        	
-//        	//Element line = (Element) aUps[i];
-//        	View lineSign = LayoutInflater.from(getBaseContext()).inflate(R.layout.line_sign, null);
-//        	TextView signTxt = (TextView) lineSign.findViewById(R.id.lineName);
-//        	signTxt.setText(XMLfunctions.getValue(line, "name"));
-//        	
-//        	upList.addView(lineSign);
-//        }
-        
-        
-//        platform = (ImageView)findViewById(R.id.platform_bg);
-//        Animation slideIn = AnimationUtils.loadAnimation(this, R.anim.platform_slide);
-//        slideIn.setFillAfter(true);
-//        platform.startAnimation(slideIn);
-        
-//        Document _doc = ((LineStatusData)getApplication()).getStatusData();
-//
-//      //Needed for the listItems
-//        ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
-//
-//		NodeList subway = _doc.getElementsByTagName("subway");
-//		Element line = (Element)subway.item(0);
-//		NodeList nodes = line.getElementsByTagName("line");
-//		
-//		
-//		for (int i = 0; i < nodes.getLength(); i++) {							
-//			HashMap<String, String> map = new HashMap<String, String>();	
-//			
-//			Element e = (Element)nodes.item(i);
-//			map.put("name", XMLfunctions.getValue(e, "name"));
-//        	map.put("status", "Status: " + XMLfunctions.getValue(e, "status"));
-//        	mylist.add(map);			
-//		}		
-//       
-//        ListAdapter adapter = new SimpleAdapter(this, mylist , R.layout.platform, 
-//                        new String[] { "name", "status" }, 
-//                        new int[] { R.id.item_title, R.id.item_subtitle });
-//        
-//        setListAdapter(adapter);
-//        
-        //getListView().setCacheColorHint(0);
-        
+        GridView downsGrid = (GridView) findViewById(R.id.downs_grid);
+        downsGrid.setAdapter(new DownLineListAdapter());
         /*
         //Set listview background 
         final ListView lv = getListView();
@@ -125,11 +91,10 @@ public class PlatformActivity extends Activity {
 //		});
     }
 	
-	public class LineListAdapter extends BaseAdapter{
-		public LineListAdapter(){
+	public class UpLineListAdapter extends BaseAdapter{
+		public UpLineListAdapter(){
 			
 		}
-		
 		
 		@Override
 		public int getCount() {
@@ -156,9 +121,12 @@ public class PlatformActivity extends Activity {
 	        if(convertView==null){
 	            LayoutInflater li = getLayoutInflater();
 	            v = li.inflate(R.layout.line_sign, null);
-	            TextView tv = (TextView)v.findViewById(R.id.lineName);
+	            ImageView iv = (ImageView)v.findViewById(R.id.lineSign);
 	            Element line = aUps.get(position);
-	            tv.setText(XMLfunctions.getValue(line, "name"));
+	            //tv.setText(XMLfunctions.getValue(line, "name"));
+	            int imgId = getResources().getIdentifier("line_"+XMLfunctions.getValue(line, "name").toLowerCase(), "drawable", "com.yinmotion.MTAmashup");
+	            Log.v(TAG, "id : "+"line_"+XMLfunctions.getValue(line, "name"));
+	            iv.setImageResource(imgId);
 
 	        }
 	        else
@@ -167,6 +135,50 @@ public class PlatformActivity extends Activity {
 	        }
 	        return v;
 
+		}
+		
+	}
+	
+	public class DownLineListAdapter extends BaseAdapter{
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return aDowns.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return aDowns.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+			View v;
+	        if(convertView==null){
+	            LayoutInflater li = getLayoutInflater();
+	            v = li.inflate(R.layout.line_sign, null);
+	            ImageView iv = (ImageView)v.findViewById(R.id.lineSign);
+	            Element line = aDowns.get(position);
+	            //tv.setText(XMLfunctions.getValue(line, "name"));
+	            int imgId = getResources().getIdentifier("line_"+XMLfunctions.getValue(line, "name").toLowerCase(), "drawable", "com.yinmotion.MTAmashup");
+	            Log.v(TAG, "id : "+"line_"+XMLfunctions.getValue(line, "name"));
+	            iv.setImageResource(imgId);
+
+	        }
+	        else
+	        {
+	            v = convertView;
+	        }
+	        return v;
 		}
 		
 	}

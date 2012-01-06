@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="25dp"
     android:background="@drawable/bump_pattern_2"
-    android:orientation="vertical" >
+    android:orientation="horizontal" >
     
     	<ImageView
         android:id="@+id/app_title_logo"
@@ -12,9 +12,15 @@
         android:layout_height="25dp"/>
 
     	<TextView
-    	    android:id="@+id/textView1"
-    	    android:layout_width="wrap_content"
+    	    android:id="@+id/app_title_timestamp"
+    	    android:layout_width="match_parent"
     	    android:layout_height="wrap_content"
-    	    android:text="TextView" />
+    	    android:layout_weight="1"
+    	    android:gravity="right"
+    	    android:layout_gravity="bottom"
+    	    android:paddingRight="3dp"
+    	    android:textColor="#333"
+    	    android:textSize="13dp"
+    	     />
 		    
 </LinearLayout>

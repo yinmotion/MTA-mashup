@@ -57,4 +57,11 @@ public class LineStatusData extends Application {
 	public ArrayList<Element> getDowns(){
 		return aDowns;
 	}
+	
+	public String getTimestamp(){
+		
+		NodeList eTime = (NodeList)_doc.getElementsByTagName("timestamp");
+		Log.v(TAG, "eTime = "+XMLfunctions.getElementValue(eTime.item(0)));
+		return XMLfunctions.getElementValue(eTime.item(0));
+	}
 }
