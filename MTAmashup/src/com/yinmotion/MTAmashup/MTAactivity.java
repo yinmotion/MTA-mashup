@@ -13,9 +13,15 @@ import com.yinmotion.MTAmashup.PlatformActivity.DownLineListAdapter;
 import com.yinmotion.MTAmashup.PlatformActivity.UpLineListAdapter;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,17 +68,23 @@ public class MTAactivity extends Activity {
         
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.app_title);
         
-        xmlTask = new XMLloaderParser();
+        splashIn();
+//        if(!isNetworkAvailable()){
+//        	noConnectionWarning();
+//        	return;
+//        }
         
-        loaderTimer = new Timer();
-        loaderTimer.schedule(new TimerTask() {
-			
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				loaderTimerMethod();
-			}
-		}, 2000, 1000);
+//        xmlTask = new XMLloaderParser();
+//        
+//        loaderTimer = new Timer();
+//        loaderTimer.schedule(new TimerTask() {
+//			
+//			@Override
+//			public void run() {
+//				// TODO Auto-generated method stub
+//				loaderTimerMethod();
+//			}
+//		}, 2000, 1000);
         
 //        loadingFlipper = (ViewFlipper)findViewById(R.id.loading_data);
 //        loadingFlipper.startFlipping();
@@ -96,10 +108,80 @@ public class MTAactivity extends Activity {
 //        	}
 //        });
         
-        xmlTask.execute();
         //transToWall();
 	}
 	
+	private void loadXMLData() {
+		if(!isNetworkAvailable()){
+        	noConnectionWarning();
+        	return;
+        }
+		
+		xmlTask = new XMLloaderParser();
+        
+        loaderTimer = new Timer();
+        loaderTimer.schedule(new TimerTask() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				loaderTimerMethod();
+			}
+		}, 2000, 1000);
+        
+        xmlTask.execute();
+	}
+	
+	private void splashIn() {
+		FrameLayout platform = (FrameLayout)findViewById(R.id.main_container);
+		Animation splashIn = AnimationUtils.loadAnimation(this, R.anim.splash_in);
+		
+		splashIn.setFillAfter(true);
+		splashIn.setAnimationListener(new AnimationListener() {
+			
+			@Override
+			public void onAnimationStart(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				// TODO Auto-generated method stub
+				loadXMLData();
+			}
+		});
+		platform.startAnimation(splashIn);
+	}
+	
+	private void noConnectionWarning() {
+		Log.v(TAG, "noConnectionWarning");
+		// TODO Auto-generated method stub
+		AlertDialog alert = new AlertDialog.Builder(this).
+								setTitle(R.string.no_internet_connection).
+								setMessage(R.string.connect_to_internet).
+								setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
+							           public void onClick(DialogInterface dialog, int id) {
+							                dialog.cancel();
+							           }
+							       }).create();
+		
+		alert.show();
+	}
+	
+	protected boolean isNetworkAvailable() {
+		ConnectivityManager connectivityMng = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetworkInfo = connectivityMng.getActiveNetworkInfo();
+
+		return activeNetworkInfo!=null;
+	}
+
 	protected void loaderTimerMethod() {
 		// TODO Auto-generated method stub
     	this.runOnUiThread(checkDataLoaded);
@@ -289,19 +371,28 @@ public class MTAactivity extends Activity {
 		}
 
 		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
+		public View getView(final int position, View convertView, ViewGroup parent) {
 			// TODO Auto-generated method stub
 			View v;
 	        if(convertView==null){
 	            LayoutInflater li = getLayoutInflater();
 	            v = li.inflate(R.layout.line_sign, null);
 	            ImageView iv = (ImageView)v.findViewById(R.id.lineSign);
-	            Element line = aUps.get(position);
+	            final Element line = aUps.get(position);
 	            //tv.setText(XMLfunctions.getValue(line, "name"));
-	            int imgId = getResources().getIdentifier("line_"+XMLfunctions.getValue(line, "name").toLowerCase(), "drawable", "com.yinmotion.MTAmashup");
-	            Log.v(TAG, "id : "+"line_"+XMLfunctions.getValue(line, "name"));
+	            final int imgId = getResources().getIdentifier("line_"+XMLfunctions.getValue(line, "name").toLowerCase(), "drawable", "com.yinmotion.MTAmashup");
+	            //Log.v(TAG, "id : "+"line_"+XMLfunctions.getValue(line, "name"));
 	            iv.setImageResource(imgId);
-
+	            
+	            iv.setOnClickListener(new View.OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						showUpStatusDetail(imgId, line);
+						
+					}
+				});
 	        }
 	        else
 	        {
@@ -311,6 +402,19 @@ public class MTAactivity extends Activity {
 
 		}
 		
+	}
+	
+	private void showUpStatusDetail(int iconId, Element line){
+		AlertDialog detail = new AlertDialog.Builder(this).
+				setTitle(XMLfunctions.getValue(line, "status")).
+				//setMessage(R.string.connect_to_internet).
+				setIcon(iconId).
+				setNegativeButton("COOL!", new DialogInterface.OnClickListener() {
+			           public void onClick(DialogInterface dialog, int id) {
+			                dialog.cancel();
+			           }
+			       }).create();
+		detail.show();
 	}
 	
 	public class DownLineListAdapter extends BaseAdapter{
@@ -341,12 +445,21 @@ public class MTAactivity extends Activity {
 	            LayoutInflater li = getLayoutInflater();
 	            v = li.inflate(R.layout.line_sign, null);
 	            ImageView iv = (ImageView)v.findViewById(R.id.lineSign);
-	            Element line = aDowns.get(position);
+	            final Element line = aDowns.get(position);
 	            //tv.setText(XMLfunctions.getValue(line, "name"));
-	            int imgId = getResources().getIdentifier("line_"+XMLfunctions.getValue(line, "name").toLowerCase(), "drawable", "com.yinmotion.MTAmashup");
+	            final int imgId = getResources().getIdentifier("line_"+XMLfunctions.getValue(line, "name").toLowerCase(), "drawable", "com.yinmotion.MTAmashup");
 	            Log.v(TAG, "id : "+"line_"+XMLfunctions.getValue(line, "name"));
 	            iv.setImageResource(imgId);
-
+	            
+	            iv.setOnClickListener(new View.OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						showDownStatusDetail(imgId, line);
+						
+					}
+				});
 	        }
 	        else
 	        {
@@ -354,6 +467,26 @@ public class MTAactivity extends Activity {
 	        }
 	        return v;
 		}
+
 		
+	}
+	
+	protected void showDownStatusDetail(int iconId, Element line) {
+		// TODO Auto-generated method stub
+		AlertDialog downdetail = new AlertDialog.Builder(this).
+				setTitle(XMLfunctions.getValue(line, "status")).
+				setMessage(Html.fromHtml(XMLfunctions.getValue(line, "plannedworkheadline"))).
+				setIcon(iconId).
+				setPositiveButton("RANT!!!", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						dialog.cancel();
+					}
+				}).
+				setNegativeButton("OH WELL", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						dialog.cancel();
+					}
+				}).create();
+		downdetail.show();
 	}
 }
