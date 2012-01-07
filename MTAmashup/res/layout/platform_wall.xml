@@ -19,6 +19,21 @@
 	       android:paddingBottom="20dp"
 	       android:orientation="vertical"
 	       android:layout_gravity="center_horizontal">
+
+
 	</LinearLayout>    
+	<GridView
+	    android:id="@+id/gridView1"
+	    android:layout_width="match_parent"
+	    android:layout_height="60px"
+	    android:numColumns="3"
+	    android:horizontalSpacing="1dp"
+	    
+	    android:stretchMode="columnWidth"
+	    android:layout_gravity="bottom" 
+	    android:background="@drawable/bump_pattern_2"
+	    android:visibility="invisible">
+	    
+	</GridView>
 
 </FrameLayout>

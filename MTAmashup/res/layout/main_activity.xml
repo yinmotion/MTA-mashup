@@ -22,20 +22,21 @@
 	        android:layout_height="wrap_content"
 	        android:src="@drawable/splash_platform_edg"
 	        android:layout_gravity="bottom" />
-		<LinearLayout
+		
+	</FrameLayout>
+	<LinearLayout
 		    android:layout_width="wrap_content"
-		    android:layout_height="560px"
+		    android:layout_height="500px"
 		    android:layout_gravity="center_horizontal"
 		     
 		    >
 		    <ProgressBar
 		        android:id="@+id/mainProgressBar"
-		        
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_gravity="center_horizontal|center_vertical"
+		        
 		         />
 		    
 		</LinearLayout>
-	</FrameLayout>
 </FrameLayout>
