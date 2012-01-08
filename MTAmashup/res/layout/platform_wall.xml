@@ -8,32 +8,30 @@
 	    android:id="@+id/splash_train"
 	    android:layout_width="630px"
 	    android:layout_height="wrap_content"
-	    android:paddingTop="193px"
+	    android:paddingTop="160px"
 	    android:src="@drawable/splash_train"
 	    android:visibility="invisible" />
 	<LinearLayout
           android:id="@+id/platform_container"
 	       android:layout_width="fill_parent"
 	       android:layout_height="fill_parent"
-	       android:paddingTop="20dp"
+	       android:paddingTop="35dp"
 	       android:paddingBottom="20dp"
 	       android:orientation="vertical"
 	       android:layout_gravity="center_horizontal">
-
-
 	</LinearLayout>    
 	<GridView
 	    android:id="@+id/gridView1"
 	    android:layout_width="match_parent"
-	    android:layout_height="60px"
+	    android:layout_height="80px"
 	    android:numColumns="3"
 	    android:horizontalSpacing="1dp"
 	    
 	    android:stretchMode="columnWidth"
 	    android:layout_gravity="bottom" 
-	    android:background="@drawable/bump_pattern_2"
-	    android:visibility="invisible">
 	    
+	    android:visibility="invisible">
+		
 	</GridView>
 
 </FrameLayout>

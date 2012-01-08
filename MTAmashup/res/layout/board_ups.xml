@@ -10,7 +10,8 @@
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
     android:paddingBottom="5dp"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    >
 
     <LinearLayout
         android:id="@+id/board_up_header"

@@ -69,22 +69,7 @@ public class MTAactivity extends Activity {
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.app_title);
         
         splashIn();
-//        if(!isNetworkAvailable()){
-//        	noConnectionWarning();
-//        	return;
-//        }
-        
-//        xmlTask = new XMLloaderParser();
-//        
-//        loaderTimer = new Timer();
-//        loaderTimer.schedule(new TimerTask() {
-//			
-//			@Override
-//			public void run() {
-//				// TODO Auto-generated method stub
-//				loaderTimerMethod();
-//			}
-//		}, 2000, 1000);
+
         
 //        loadingFlipper = (ViewFlipper)findViewById(R.id.loading_data);
 //        loadingFlipper.startFlipping();
@@ -107,8 +92,7 @@ public class MTAactivity extends Activity {
 //        		//new LoadXMLTask().execute();
 //        	}
 //        });
-        
-        //transToWall();
+
 	}
 	
 	private void loadXMLData() {
@@ -228,44 +212,6 @@ public class MTAactivity extends Activity {
     	}
     }
 	
-
-//	private void slideTrainIn() {
-//		//Log.v(TAG, "slideTrainIn");
-//		ImageView train = (ImageView)findViewById(R.id.splash_train);
-//		Animation trainSlide = AnimationUtils.loadAnimation(this, R.anim.splash_train_slide);
-//		//trainSlide.setFillAfter(true);
-//		trainSlide.setAnimationListener(new AnimationListener() {
-//			
-//			@Override
-//			public void onAnimationStart(Animation animation) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//			
-//			@Override
-//			public void onAnimationRepeat(Animation animation) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//			
-//			@Override
-//			public void onAnimationEnd(Animation animation) {
-//				// TODO Auto-generated method stub
-//				startPlatformAct();
-//			}
-//		});
-//		train.startAnimation(trainSlide);
-//		//trainSlide.setFillAfter(true);
-//	}
-    
-//    protected void startPlatformAct() {
-//		// TODO Auto-generated method stub
-//    	Intent intent = new Intent(this, PlatformActivity.class);
-//    	startActivity(intent);
-//    	
-//    	//overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-//	}
-	
 	protected void transToWall(){
 		FrameLayout platform = (FrameLayout)findViewById(R.id.main_container);
 		Animation platformOut = AnimationUtils.loadAnimation(this, R.anim.platform_out);
@@ -335,7 +281,7 @@ public class MTAactivity extends Activity {
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				// TODO Auto-generated method stub
-				//slideTrainIn();
+				slideTrainIn();
 			}
 		});
 	}
@@ -409,7 +355,7 @@ public class MTAactivity extends Activity {
 				setTitle(XMLfunctions.getValue(line, "status")).
 				//setMessage(R.string.connect_to_internet).
 				setIcon(iconId).
-				setNegativeButton("COOL!", new DialogInterface.OnClickListener() {
+				setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
 			           public void onClick(DialogInterface dialog, int id) {
 			                dialog.cancel();
 			           }
@@ -471,22 +417,33 @@ public class MTAactivity extends Activity {
 		
 	}
 	
-	protected void showDownStatusDetail(int iconId, Element line) {
-		// TODO Auto-generated method stub
+	protected void showDownStatusDetail(int iconId, final Element line) {
+		//
 		AlertDialog downdetail = new AlertDialog.Builder(this).
 				setTitle(XMLfunctions.getValue(line, "status")).
 				setMessage(Html.fromHtml(XMLfunctions.getValue(line, "plannedworkheadline"))).
 				setIcon(iconId).
-				setPositiveButton("RANT!!!", new DialogInterface.OnClickListener() {
+				setPositiveButton("RANT!#?@", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						dialog.cancel();
+						rantIt(line);
 					}
 				}).
-				setNegativeButton("OH WELL", new DialogInterface.OnClickListener() {
+				setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						dialog.cancel();
 					}
 				}).create();
 		downdetail.show();
+	}
+
+	protected void rantIt(Element line) {
+		// 
+		Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+		sharingIntent.setType("text/plain");
+		String shareBody = "WTF?#! @"+ XMLfunctions.getValue(line, "Time")+" "+XMLfunctions.getValue(line, "Date")+", " +XMLfunctions.getValue(line, "name")+" train has "+ XMLfunctions.getValue(line, "status").toLowerCase();
+		sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, XMLfunctions.getValue(line, "name")+" train has "+ XMLfunctions.getValue(line, "status").toLowerCase());
+		sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+		startActivity(Intent.createChooser(sharingIntent, "Rant via"));
 	}
 }
