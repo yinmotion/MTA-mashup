@@ -19,7 +19,7 @@
     	    android:gravity="right"
     	    android:layout_gravity="bottom"
     	    android:paddingRight="3dp"
-    	    android:textColor="#333"
+    	    android:textColor="#CCC"
     	    android:textSize="13dp"
     	     />
 		    

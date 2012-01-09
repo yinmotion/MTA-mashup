@@ -335,42 +335,27 @@ public class MTAactivity extends Activity {
 	            final Integer i = aMainMenu.get(position);
 	            iv.setImageResource(i);
 	            
-	            iv.setOnTouchListener(new View.OnTouchListener() {
-					
-					@Override
-					public boolean onTouch(View v, MotionEvent event) {
-						// TODO Auto-generated method stub
-						//Log.v(TAG, "touched : "+v.getId());
-						onMainMenuClick(v, i);
-						return false;
-					}
-				});
+//	            iv.setOnTouchListener(new View.OnTouchListener() {
+//					
+//					@Override
+//					public boolean onTouch(View v, MotionEvent event) {
+//						// TODO Auto-generated method stub
+//						//Log.v(TAG, "touched : "+v.getId());
+//						onMainMenuClick(v, i);
+//						return false;
+//					}
+//				});
 	            
-	            /*
+	            //*
 	            iv.setOnClickListener(new View.OnClickListener() {
 					
 					@Override
 					public void onClick(View v) {
-						switch (i) {
-						case R.drawable.menu_icons_refresh:
-							
-						break;
-						
-						case R.drawable.menu_icons_setting:
-							
-						break;
-						
-						case R.drawable.menu_icons_share:
-							shareIt();
-						break;
-						
-						default:
-							break;
-						}
+						onMainMenuClick(v, i);
 						
 					}
 				});
-				*/
+				//*/
 	        }
 	        else
 	        {
