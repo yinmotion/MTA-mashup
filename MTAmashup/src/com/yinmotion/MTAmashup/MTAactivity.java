@@ -12,6 +12,7 @@ import org.w3c.dom.Element;
 import com.yinmotion.MTAmashup.PlatformActivity.DownLineListAdapter;
 import com.yinmotion.MTAmashup.PlatformActivity.UpLineListAdapter;
 
+import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -24,6 +25,9 @@ import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -194,6 +198,9 @@ public class MTAactivity extends Activity {
 			}
 		}
 	};
+	private GridView menuGrid;
+	private ArrayList<Integer> aMainMenu;
+	private Menu mMenu;
 	
 	private void setLineStatusData() {
 		// TODO Auto-generated method stub
@@ -282,10 +289,116 @@ public class MTAactivity extends Activity {
 			public void onAnimationEnd(Animation animation) {
 				// TODO Auto-generated method stub
 				slideTrainIn();
+				addMenu();
+				
 			}
 		});
 	}
 	
+	protected void addMenu() {
+		// TODO Auto-generated method stub
+		if(menuGrid!=null) return;
+		aMainMenu = ((LineStatusData)getApplication()).getMainMenu();
+		menuGrid = (GridView) findViewById(R.id.main_menu);
+		menuGrid.setAdapter(new MenuListAdapter());
+		
+		menuGrid.setVisibility(1);
+	}
+	
+	public class MenuListAdapter extends BaseAdapter{
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return 3;
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return aMainMenu.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			View v;
+	        if(convertView==null){
+	            LayoutInflater li = getLayoutInflater();
+	            v = li.inflate(R.layout.menu_item, null);
+	            ImageView iv = (ImageView)v.findViewById(R.id.main_menu_icon);
+	            final Integer i = aMainMenu.get(position);
+	            iv.setImageResource(i);
+	            
+	            iv.setOnTouchListener(new View.OnTouchListener() {
+					
+					@Override
+					public boolean onTouch(View v, MotionEvent event) {
+						// TODO Auto-generated method stub
+						//Log.v(TAG, "touched : "+v.getId());
+						onMainMenuClick(v, i);
+						return false;
+					}
+				});
+	            
+	            /*
+	            iv.setOnClickListener(new View.OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						switch (i) {
+						case R.drawable.menu_icons_refresh:
+							
+						break;
+						
+						case R.drawable.menu_icons_setting:
+							
+						break;
+						
+						case R.drawable.menu_icons_share:
+							shareIt();
+						break;
+						
+						default:
+							break;
+						}
+						
+					}
+				});
+				*/
+	        }
+	        else
+	        {
+	            v = convertView;
+	        }
+	        return v;
+		}
+	}
+	
+	protected void onMainMenuClick(View v, Integer i){
+		switch (i) {
+		case R.drawable.menu_icons_refresh:
+			
+		break;
+		
+		case R.drawable.menu_icons_setting:
+			openOptionsMenu();
+		break;
+		
+		case R.drawable.menu_icons_share:
+			shareIt();
+		break;
+		
+		default:
+			break;
+		}
+	}
+
 	protected void slideTrainIn(){
 		ImageView train = (ImageView)findViewById(R.id.splash_train);
 		Animation trainSlide = AnimationUtils.loadAnimation(this, R.anim.splash_train_slide);
@@ -438,12 +551,37 @@ public class MTAactivity extends Activity {
 	}
 
 	protected void rantIt(Element line) {
-		// 
+		String body = "WTF?#! @"+ XMLfunctions.getValue(line, "Time")+" "+XMLfunctions.getValue(line, "Date")+", " +XMLfunctions.getValue(line, "name")+" train has "+ XMLfunctions.getValue(line, "status").toLowerCase();
+		String subject = XMLfunctions.getValue(line, "name")+" Line has "+ XMLfunctions.getValue(line, "status").toLowerCase();
+		String chooserHeader = "Rant via";
+		
+		doShareIntent(body, subject, chooserHeader);
+	}
+	
+	protected void shareIt(){
+		
+		String subject = "MTA service status @"+((LineStatusData)getApplication()).getTimestamp();
+		String chooserHeader = "Share via";
+		
+		doShareIntent(((LineStatusData)getApplication()).getAllStatus(), subject, chooserHeader);
+	}
+	
+	protected void doShareIntent(String body, String subject, String chooserHeader){
 		Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
 		sharingIntent.setType("text/plain");
-		String shareBody = "WTF?#! @"+ XMLfunctions.getValue(line, "Time")+" "+XMLfunctions.getValue(line, "Date")+", " +XMLfunctions.getValue(line, "name")+" train has "+ XMLfunctions.getValue(line, "status").toLowerCase();
-		sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, XMLfunctions.getValue(line, "name")+" train has "+ XMLfunctions.getValue(line, "status").toLowerCase());
-		sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-		startActivity(Intent.createChooser(sharingIntent, "Rant via"));
+		sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
+		sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, body);
+		startActivity(Intent.createChooser(sharingIntent, chooserHeader));
 	}
+
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        
+        mMenu = menu;
+        
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        
+        return true;
+    }
 }

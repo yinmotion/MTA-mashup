@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ImageView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_menu_icon"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
     android:background="@drawable/bump_pattern_large"
-    >
-	<ImageView
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
-	    android:layout_gravity="center_horizontal"
-	    android:src="@drawable/menu_icon_setting"
-	    />
-</LinearLayout>
+ 	>
+</ImageView>

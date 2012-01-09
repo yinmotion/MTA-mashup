@@ -6,7 +6,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import android.R.integer;
 import android.app.Application;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 /*
@@ -18,6 +20,8 @@ public class LineStatusData extends Application {
 	private Document _doc;
 	private ArrayList<Element> aUps;
 	private ArrayList<Element> aDowns;
+	private ArrayList<Integer> aMainMenu;
+	private String status;
 	
 	public void setStatusData(Document doc){
 		_doc = doc;
@@ -63,5 +67,34 @@ public class LineStatusData extends Application {
 		NodeList eTime = (NodeList)_doc.getElementsByTagName("timestamp");
 		Log.v(TAG, "eTime = "+XMLfunctions.getElementValue(eTime.item(0)));
 		return XMLfunctions.getElementValue(eTime.item(0));
+	}
+	
+	public ArrayList<Integer> getMainMenu(){
+		if(aMainMenu==null){
+			aMainMenu = new ArrayList<Integer>();
+			
+			aMainMenu.add(0, R.drawable.menu_icons_refresh);
+			aMainMenu.add(1, R.drawable.menu_icons_setting);
+			aMainMenu.add(2, R.drawable.menu_icons_share);
+		}
+		
+		return aMainMenu;
+	}
+	
+	public String getAllStatus(){
+		
+		if(status == null){
+			status += "Ups: ";	
+			for(int i=0; i<aUps.size(); i++){
+				Element line = aUps.get(i);
+				status += XMLfunctions.getValue(line, "name") + " Line : "+ XMLfunctions.getValue(line, "status") + " updated @"+XMLfunctions.getValue(line, "Time")+" "+XMLfunctions.getValue(line, "Date") + ".   ";
+			}
+			status += "Downs: ";
+			for(int i=0; i<aDowns.size(); i++){
+				Element line = aDowns.get(i);
+				status += XMLfunctions.getValue(line, "name") + " Line : "+ XMLfunctions.getValue(line, "status") + " updated @"+XMLfunctions.getValue(line, "Time")+" "+XMLfunctions.getValue(line, "Date") + ".   ";
+			}
+		}
+		return status;
 	}
 }

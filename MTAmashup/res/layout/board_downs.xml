@@ -22,7 +22,9 @@
         
         android:gravity="center"
         android:horizontalSpacing="0dp"
-        android:verticalSpacing="5dp"/>
+        android:verticalSpacing="5dp"
+        
+        android:drawSelectorOnTop="true"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -46,7 +48,7 @@
         <TextView 
             android:text="@string/downs"
             android:textColor="#FFF"
-            android:layout_gravity="top"
+            android:layout_gravity="center_vertical"
             android:textSize="14dp"
             android:typeface="sans"
             android:paddingLeft="5dp"
