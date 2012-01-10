@@ -32,9 +32,26 @@
 	    android:layout_gravity="bottom"
 	    android:drawSelectorOnTop="true"
 	    android:columnWidth="159dp"
-	    android:listSelector="@layout/list_selector"
+	    android:listSelector="@drawable/menu_selector"
 	    
 	    android:visibility="invisible"
 	    />
+
+	<LinearLayout
+	    android:id="@+id/linearLayout1"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    android:gravity="center_vertical" >
+
+		<ProgressBar
+		    android:id="@+id/refreshLoader"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center_horizontal"
+		    android:visibility="invisible"
+		    />
+
+	</LinearLayout>
 
 </FrameLayout>

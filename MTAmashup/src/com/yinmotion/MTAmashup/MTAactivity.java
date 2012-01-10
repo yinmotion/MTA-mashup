@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -49,12 +50,20 @@ import android.widget.ViewFlipper;
 public class MTAactivity extends Activity {
 
 	public static final String TAG = "MTAactivity";
+	private static final String SCREEN_PLATFORM_WALL = "screen_platform_wall";
+	private static final String SCREEN_SPLASH = "screen_splash";
 	private View wallView;
 	private XMLloaderParser xmlTask;
 	private Timer loaderTimer;
 	private ArrayList<Element> aUps;
 	private ArrayList<Element> aDowns;
-
+	
+	private GridView menuGrid;
+	private ArrayList<Integer> aMainMenu;
+	private Menu mMenu;
+	private boolean menuEnabled = true;
+	
+	private String currScreen = SCREEN_SPLASH;
 	/**
 	 * 
 	 */
@@ -194,13 +203,11 @@ public class MTAactivity extends Activity {
 		        bar.clearAnimation();
 		        
 		        transToWall();
+		        addStatusBoards();
 		        //startPlatformAct();
 			}
 		}
 	};
-	private GridView menuGrid;
-	private ArrayList<Integer> aMainMenu;
-	private Menu mMenu;
 	
 	private void setLineStatusData() {
 		// TODO Auto-generated method stub
@@ -220,6 +227,16 @@ public class MTAactivity extends Activity {
     }
 	
 	protected void transToWall(){
+		if(currScreen==SCREEN_PLATFORM_WALL){
+			Log.v(TAG, "hide preloader");
+			ProgressBar refreshLoader = (ProgressBar)findViewById(R.id.refreshLoader);
+			refreshLoader.setVisibility(View.INVISIBLE);
+			
+			return;
+		}
+		
+		currScreen = SCREEN_PLATFORM_WALL;
+		
 		FrameLayout platform = (FrameLayout)findViewById(R.id.main_container);
 		Animation platformOut = AnimationUtils.loadAnimation(this, R.anim.platform_out);
 		
@@ -237,8 +254,7 @@ public class MTAactivity extends Activity {
 		
 		platformWallIn.setFillAfter(true);
 		platformWall.startAnimation(platformWallIn);
-		
-		addStatusBoards();
+	
 	}
 	
 	protected void addStatusBoards(){
@@ -297,12 +313,17 @@ public class MTAactivity extends Activity {
 	
 	protected void addMenu() {
 		// TODO Auto-generated method stub
-		if(menuGrid!=null) return;
+		menuEnabled = true;
+		
+		if(menuGrid!=null){
+			menuGrid.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
+			return;
+		}
 		aMainMenu = ((LineStatusData)getApplication()).getMainMenu();
 		menuGrid = (GridView) findViewById(R.id.main_menu);
 		menuGrid.setAdapter(new MenuListAdapter());
 		
-		menuGrid.setVisibility(1);
+		menuGrid.setVisibility(0);
 	}
 	
 	public class MenuListAdapter extends BaseAdapter{
@@ -334,7 +355,8 @@ public class MTAactivity extends Activity {
 	            ImageView iv = (ImageView)v.findViewById(R.id.main_menu_icon);
 	            final Integer i = aMainMenu.get(position);
 	            iv.setImageResource(i);
-	            
+
+//	            
 //	            iv.setOnTouchListener(new View.OnTouchListener() {
 //					
 //					@Override
@@ -351,6 +373,7 @@ public class MTAactivity extends Activity {
 					
 					@Override
 					public void onClick(View v) {
+						
 						onMainMenuClick(v, i);
 						
 					}
@@ -366,9 +389,11 @@ public class MTAactivity extends Activity {
 	}
 	
 	protected void onMainMenuClick(View v, Integer i){
+		if(!menuEnabled ) return;
+		
 		switch (i) {
 		case R.drawable.menu_icons_refresh:
-			
+			refresh();
 		break;
 		
 		case R.drawable.menu_icons_setting:
@@ -384,9 +409,60 @@ public class MTAactivity extends Activity {
 		}
 	}
 
+	private void refresh() {
+		// TODO Auto-generated method stub
+		slideTrainOut();
+		slideBoardOut();
+		ProgressBar refreshLoader = (ProgressBar)findViewById(R.id.refreshLoader);
+		refreshLoader.setVisibility(View.VISIBLE);
+		
+		Animation fadeout = AnimationUtils.loadAnimation(this, android.R.anim.fade_out);
+		fadeout.setFillAfter(true);		
+		menuGrid.startAnimation(fadeout);
+		menuEnabled = false;
+		
+		loadXMLData();
+	}
+
+	private void slideBoardOut(){
+		Animation boardBack = AnimationUtils.loadAnimation(this, R.anim.board_back);
+		
+		boardBack.setFillAfter(true);
+		final ViewGroup wall_container = (ViewGroup) findViewById(R.id.platform_container);
+		wall_container.startAnimation(boardBack);
+		wall_container.setEnabled(false);
+		boardBack.setAnimationListener(new AnimationListener() {
+			
+			@Override
+			public void onAnimationStart(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				// TODO Auto-generated method stub
+				wall_container.removeAllViews();
+			}
+		});
+	}
+
 	protected void slideTrainIn(){
 		ImageView train = (ImageView)findViewById(R.id.splash_train);
 		Animation trainSlide = AnimationUtils.loadAnimation(this, R.anim.splash_train_slide);
+		trainSlide.setFillAfter(true);
+		train.startAnimation(trainSlide);
+	}
+	
+	protected void slideTrainOut(){
+		ImageView train = (ImageView)findViewById(R.id.splash_train);
+		Animation trainSlide = AnimationUtils.loadAnimation(this, R.anim.splash_train_slide_out);
 		trainSlide.setFillAfter(true);
 		train.startAnimation(trainSlide);
 	}
@@ -486,6 +562,7 @@ public class MTAactivity extends Activity {
 			// TODO Auto-generated method stub
 			View v;
 	        if(convertView==null){
+	        	
 	            LayoutInflater li = getLayoutInflater();
 	            v = li.inflate(R.layout.line_sign, null);
 	            ImageView iv = (ImageView)v.findViewById(R.id.lineSign);
@@ -494,6 +571,7 @@ public class MTAactivity extends Activity {
 	            final int imgId = getResources().getIdentifier("line_"+XMLfunctions.getValue(line, "name").toLowerCase(), "drawable", "com.yinmotion.MTAmashup");
 	            Log.v(TAG, "id : "+"line_"+XMLfunctions.getValue(line, "name"));
 	            iv.setImageResource(imgId);
+	            
 	            
 	            iv.setOnClickListener(new View.OnClickListener() {
 					
