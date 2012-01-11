@@ -9,9 +9,6 @@ import java.util.TimerTask;
 
 import org.w3c.dom.Element;
 
-import com.yinmotion.MTAmashup.PlatformActivity.DownLineListAdapter;
-import com.yinmotion.MTAmashup.PlatformActivity.UpLineListAdapter;
-
 import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -19,10 +16,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorListener;
+import android.hardware.SensorManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.opengl.Visibility;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -60,10 +63,14 @@ public class MTAactivity extends Activity {
 	
 	private GridView menuGrid;
 	private ArrayList<Integer> aMainMenu;
-	private Menu mMenu;
 	private boolean menuEnabled = true;
 	
 	private String currScreen = SCREEN_SPLASH;
+	private boolean isRefreshing = false;
+	
+	private double threshold=1.0d;
+	private long lastShakeTimestamp=0;
+	private long gap=0;
 	/**
 	 * 
 	 */
@@ -208,6 +215,7 @@ public class MTAactivity extends Activity {
 			}
 		}
 	};
+	private SensorManager sensorMgr;
 	
 	private void setLineStatusData() {
 		// TODO Auto-generated method stub
@@ -262,19 +270,17 @@ public class MTAactivity extends Activity {
         //Log.v(TAG, "title : "+tv);
         tv.setText("@"+((LineStatusData)getApplication()).getTimestamp());
         
+        //Inflate ups list view
         ViewGroup wall_container = (ViewGroup) findViewById(R.id.platform_container); 
         
         View upView = LayoutInflater.from(getBaseContext()).inflate(R.layout.board_ups, null);
-        
         wall_container.addView(upView);        
-        
         aUps = ((LineStatusData)getApplication()).getUps();
         
         GridView upsGrid = (GridView) findViewById(R.id.ups_grid); 
         upsGrid.setAdapter(new UpLineListAdapter());
         
-        //
-        	
+        //Inflate downs list view
         View downView = LayoutInflater.from(getBaseContext()).inflate(R.layout.board_downs, null);
         wall_container.addView(downView);
         aDowns = ((LineStatusData) getApplication()).getDowns();
@@ -304,13 +310,91 @@ public class MTAactivity extends Activity {
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				// TODO Auto-generated method stub
-				slideTrainIn();
-				addMenu();
-				
+				onBoardSlideIn();
 			}
 		});
 	}
 	
+	private void onBoardSlideIn() {
+		slideTrainIn();
+		addMenu();
+		addShakeListener();
+	}
+	
+	private void addShakeListener() {
+		// TODO Auto-generated method stub
+		sensorMgr = (SensorManager) getSystemService(SENSOR_SERVICE);
+		boolean accelSupported = sensorMgr.registerListener(listener,
+				sensorMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+				SensorManager.SENSOR_DELAY_GAME);
+		 
+			if (!accelSupported) {
+			    // on accelerometer on this device
+			    sensorMgr.unregisterListener(listener);
+			}
+		
+	}
+	
+	private SensorEventListener listener = new SensorEventListener() {
+		
+		@Override
+		public void onSensorChanged(SensorEvent event) {
+			 if (event.sensor.getType()==Sensor.TYPE_ACCELEROMETER) {
+			        double netForce=event.values[0]*event.values[0];
+			        
+			        netForce+=event.values[1]*event.values[1];
+			        netForce+=event.values[2]*event.values[2];
+			        
+			        if (threshold<netForce) {
+			        	
+			          isShaking();
+			        }
+			        else {
+			        	
+			          isNotShaking();
+			        }
+			      }
+		}
+		
+		@Override
+		public void onAccuracyChanged(Sensor sensor, int accuracy) {
+		}
+	};
+	
+	
+	private void isShaking() {
+	    long now=SystemClock.uptimeMillis();
+	    
+	    if (lastShakeTimestamp==0) {
+	      lastShakeTimestamp=now;
+	      
+//	      if (cb!=null) {
+//	        cb.shakingStarted();
+	      
+//	      }
+	      Log.v(TAG, "isShaking");
+	    }
+	    else {
+	      lastShakeTimestamp=now;
+	    }
+	    
+	  }
+	  
+	  private void isNotShaking() {
+	    long now=SystemClock.uptimeMillis();
+	    
+	    if (lastShakeTimestamp>0) {
+	      if (now-lastShakeTimestamp>gap) {
+	        lastShakeTimestamp=0;
+	        
+//	        if (cb!=null) {
+//	          cb.shakingStopped();
+//	        }
+	        Log.v(TAG, "isNotShaking");
+	      }
+	    }
+	  }
+
 	protected void addMenu() {
 		// TODO Auto-generated method stub
 		menuEnabled = true;
@@ -363,12 +447,20 @@ public class MTAactivity extends Activity {
 //					public boolean onTouch(View v, MotionEvent event) {
 //						// TODO Auto-generated method stub
 //						//Log.v(TAG, "touched : "+v.getId());
-//						onMainMenuClick(v, i);
+//						//onMainMenuClick(v, i);
+//						emptyMethod();
 //						return false;
+//					}
+//
+//					private void emptyMethod() {
+//						// TODO Auto-generated method stub
+//						
 //					}
 //				});
 	            
 	            //*
+	            //iv.setDuplicateParentStateEnabled(false);
+	            
 	            iv.setOnClickListener(new View.OnClickListener() {
 					
 					@Override
@@ -387,6 +479,8 @@ public class MTAactivity extends Activity {
 	        return v;
 		}
 	}
+	
+	
 	
 	protected void onMainMenuClick(View v, Integer i){
 		if(!menuEnabled ) return;
@@ -639,8 +733,6 @@ public class MTAactivity extends Activity {
 
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
-        mMenu = menu;
         
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
