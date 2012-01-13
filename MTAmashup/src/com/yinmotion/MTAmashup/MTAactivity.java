@@ -269,7 +269,6 @@ public class MTAactivity extends Activity {
 		TextView tv = (TextView) findViewById(R.id.app_title_timestamp);
         //Log.v(TAG, "title : "+tv);
         tv.setText("@"+((LineStatusData)getApplication()).getTimestamp());
-        
         //Inflate ups list view
         ViewGroup wall_container = (ViewGroup) findViewById(R.id.platform_container); 
         
