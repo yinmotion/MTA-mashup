@@ -372,7 +372,7 @@ public class MTAactivity extends Activity {
 //	        cb.shakingStarted();
 	      
 //	      }
-	      Log.v(TAG, "isShaking");
+	      //Log.v(TAG, "isShaking");
 	    }
 	    else {
 	      lastShakeTimestamp=now;
@@ -390,7 +390,7 @@ public class MTAactivity extends Activity {
 //	        if (cb!=null) {
 //	          cb.shakingStopped();
 //	        }
-	        Log.v(TAG, "isNotShaking");
+	        //Log.v(TAG, "isNotShaking");
 	      }
 	    }
 	  }
