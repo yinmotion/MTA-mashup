@@ -8,7 +8,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.w3c.dom.Element;
-
 import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -19,7 +18,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
-import android.hardware.SensorListener;
+
 import android.hardware.SensorManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -31,13 +30,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.ViewDebug.FlagToString;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Animation.AnimationListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.GridView;
@@ -68,9 +71,12 @@ public class MTAactivity extends Activity {
 	private String currScreen = SCREEN_SPLASH;
 	private boolean isRefreshing = false;
 	
-	private double threshold=1.0d;
-	private long lastShakeTimestamp=0;
-	private long gap=0;
+	private SensorManager sensorMgr;
+	
+	protected float accelLast;
+	protected float accelCurrent;
+	protected float accel;
+	protected long lastUpdate;
 	/**
 	 * 
 	 */
@@ -215,7 +221,6 @@ public class MTAactivity extends Activity {
 			}
 		}
 	};
-	private SensorManager sensorMgr;
 	
 	private void setLineStatusData() {
 		// TODO Auto-generated method stub
@@ -269,6 +274,7 @@ public class MTAactivity extends Activity {
 		TextView tv = (TextView) findViewById(R.id.app_title_timestamp);
         //Log.v(TAG, "title : "+tv);
         tv.setText("@"+((LineStatusData)getApplication()).getTimestamp());
+        
         //Inflate ups list view
         ViewGroup wall_container = (ViewGroup) findViewById(R.id.platform_container); 
         
@@ -278,6 +284,17 @@ public class MTAactivity extends Activity {
         
         GridView upsGrid = (GridView) findViewById(R.id.ups_grid); 
         upsGrid.setAdapter(new UpLineListAdapter());
+        upsGrid.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View v, int position,
+					long id) {
+				// TODO Auto-generated method stub
+				Element line = aUps.get(position);
+				int iconId = getResources().getIdentifier("line_"+XMLfunctions.getValue(line, "name").toLowerCase(), "drawable", "com.yinmotion.MTAmashup");
+				showUpStatusDetail(iconId, line);
+			}
+		});
         
         //Inflate downs list view
         View downView = LayoutInflater.from(getBaseContext()).inflate(R.layout.board_downs, null);
@@ -286,6 +303,17 @@ public class MTAactivity extends Activity {
         
         GridView downsGrid = (GridView) findViewById(R.id.downs_grid);
         downsGrid.setAdapter(new DownLineListAdapter());
+        downsGrid.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View v, int position,
+					long id) {
+				// TODO Auto-generated method stub
+				Element line = aDowns.get(position);
+				int iconId = getResources().getIdentifier("line_"+XMLfunctions.getValue(line, "name").toLowerCase(), "drawable", "com.yinmotion.MTAmashup");
+				showDownStatusDetail(iconId, line);
+			}
+		});
         
 		Animation boardDrop = AnimationUtils.loadAnimation(this, R.anim.board_drop);
 		
@@ -315,85 +343,89 @@ public class MTAactivity extends Activity {
 	}
 	
 	private void onBoardSlideIn() {
+		isRefreshing = false;
+		
 		slideTrainIn();
 		addMenu();
 		addShakeListener();
 	}
 	
 	private void addShakeListener() {
-		// TODO Auto-generated method stub
 		sensorMgr = (SensorManager) getSystemService(SENSOR_SERVICE);
-		boolean accelSupported = sensorMgr.registerListener(listener,
-				sensorMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-				SensorManager.SENSOR_DELAY_GAME);
-		 
-			if (!accelSupported) {
-			    // on accelerometer on this device
-			    sensorMgr.unregisterListener(listener);
-			}
-		
+		sensorMgr.registerListener(sensorListener, sensorMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+		accel = 0.00f;
+	    accelCurrent = SensorManager.GRAVITY_EARTH;
+	    accelLast = SensorManager.GRAVITY_EARTH;
 	}
 	
-	private SensorEventListener listener = new SensorEventListener() {
+	public final SensorEventListener sensorListener = new SensorEventListener() {
 		
 		@Override
 		public void onSensorChanged(SensorEvent event) {
-			 if (event.sensor.getType()==Sensor.TYPE_ACCELEROMETER) {
-			        double netForce=event.values[0]*event.values[0];
-			        
-			        netForce+=event.values[1]*event.values[1];
-			        netForce+=event.values[2]*event.values[2];
-			        
-			        if (threshold<netForce) {
-			        	
-			          isShaking();
-			        }
-			        else {
-			        	
-			          isNotShaking();
-			        }
-			      }
+			// TODO Auto-generated method stub
+			if(isRefreshing || isRanting) return;
+			
+			long curTime = System.currentTimeMillis();
+		    // only allow one update every 100ms.
+			    if ((curTime - lastUpdate) > 100) {
+			    	
+			    	lastUpdate = curTime;
+					float x = event.values[0];
+					float y = event.values[1];
+					float z = event.values[2];
+					
+					accelLast = accelCurrent;
+					accelCurrent = (float) Math.sqrt((double) (x*x + y*y + z*z));
+				    float delta = accelCurrent - accelLast;
+				    accel = accel * 0.9f + delta; // perform low-cut filter
+				    
+				    if(accel>6){
+				    	//Log.v(TAG, "shake!!!");
+				    	onShaking();
+				    }
+		    }
 		}
 		
 		@Override
 		public void onAccuracyChanged(Sensor sensor, int accuracy) {
+			// TODO Auto-generated method stub
+			
 		}
 	};
+	private boolean isDownDetailsShow;
+	private AlertDialog downdetail;
+	private boolean isRanting;
+	private Element currDetailsLine;
 	
+	protected void onShaking() {
+		Log.v(TAG, "onShaking");
+		if(downdetail!= null && downdetail.isShowing()){
+			downdetail.cancel();
+			rantIt();
+		}else{
+			isRanting = false;
+			refresh();
+		}
+	}
 	
-	private void isShaking() {
-	    long now=SystemClock.uptimeMillis();
-	    
-	    if (lastShakeTimestamp==0) {
-	      lastShakeTimestamp=now;
-	      
-//	      if (cb!=null) {
-//	        cb.shakingStarted();
-	      
-//	      }
-	      //Log.v(TAG, "isShaking");
+	@Override
+	protected void onResume() {
+		Log.v(TAG, "onResume");
+	    super.onResume();
+	    isRanting = false;
+	    if(sensorMgr!=null){
+	    	sensorMgr.registerListener(sensorListener, sensorMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
 	    }
-	    else {
-	      lastShakeTimestamp=now;
-	    }
-	    
-	  }
-	  
-	  private void isNotShaking() {
-	    long now=SystemClock.uptimeMillis();
-	    
-	    if (lastShakeTimestamp>0) {
-	      if (now-lastShakeTimestamp>gap) {
-	        lastShakeTimestamp=0;
-	        
-//	        if (cb!=null) {
-//	          cb.shakingStopped();
-//	        }
-	        //Log.v(TAG, "isNotShaking");
-	      }
-	    }
-	  }
+	}
 
+	@Override
+	protected void onStop() {
+		super.onStop();
+		if(sensorMgr!=null){
+			sensorMgr.unregisterListener(sensorListener, sensorMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER));
+		}
+	}
+	
 	protected void addMenu() {
 		// TODO Auto-generated method stub
 		menuEnabled = true;
@@ -405,11 +437,38 @@ public class MTAactivity extends Activity {
 		aMainMenu = ((LineStatusData)getApplication()).getMainMenu();
 		menuGrid = (GridView) findViewById(R.id.main_menu);
 		menuGrid.setAdapter(new MenuListAdapter());
+		menuGrid.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View v, int position,
+					long id) {
+				// TODO Auto-generated method stub
+				switch (position) {
+				case 0:
+					refresh();
+				break;
+				
+				case 1:
+					openOptionsMenu();
+				break;
+				
+				case 2:
+					shareIt();
+				break;
+				
+				default:
+					break;
+				}
+			}
+		});
 		
 		menuGrid.setVisibility(0);
 	}
 	
 	public class MenuListAdapter extends BaseAdapter{
+		
+		public MenuListAdapter(){
+		}
 
 		@Override
 		public int getCount() {
@@ -432,44 +491,14 @@ public class MTAactivity extends Activity {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			View v;
-	        if(convertView==null){
+			
+			
+	        if(convertView==null){     	
 	            LayoutInflater li = getLayoutInflater();
 	            v = li.inflate(R.layout.menu_item, null);
 	            ImageView iv = (ImageView)v.findViewById(R.id.main_menu_icon);
 	            final Integer i = aMainMenu.get(position);
 	            iv.setImageResource(i);
-
-//	            
-//	            iv.setOnTouchListener(new View.OnTouchListener() {
-//					
-//					@Override
-//					public boolean onTouch(View v, MotionEvent event) {
-//						// TODO Auto-generated method stub
-//						//Log.v(TAG, "touched : "+v.getId());
-//						//onMainMenuClick(v, i);
-//						emptyMethod();
-//						return false;
-//					}
-//
-//					private void emptyMethod() {
-//						// TODO Auto-generated method stub
-//						
-//					}
-//				});
-	            
-	            //*
-	            //iv.setDuplicateParentStateEnabled(false);
-	            
-	            iv.setOnClickListener(new View.OnClickListener() {
-					
-					@Override
-					public void onClick(View v) {
-						
-						onMainMenuClick(v, i);
-						
-					}
-				});
-				//*/
 	        }
 	        else
 	        {
@@ -478,32 +507,11 @@ public class MTAactivity extends Activity {
 	        return v;
 		}
 	}
-	
-	
-	
-	protected void onMainMenuClick(View v, Integer i){
-		if(!menuEnabled ) return;
-		
-		switch (i) {
-		case R.drawable.menu_icons_refresh:
-			refresh();
-		break;
-		
-		case R.drawable.menu_icons_setting:
-			openOptionsMenu();
-		break;
-		
-		case R.drawable.menu_icons_share:
-			shareIt();
-		break;
-		
-		default:
-			break;
-		}
-	}
 
 	private void refresh() {
 		// TODO Auto-generated method stub
+		isRefreshing = true;
+		
 		slideTrainOut();
 		slideBoardOut();
 		ProgressBar refreshLoader = (ProgressBar)findViewById(R.id.refreshLoader);
@@ -596,16 +604,7 @@ public class MTAactivity extends Activity {
 	            final int imgId = getResources().getIdentifier("line_"+XMLfunctions.getValue(line, "name").toLowerCase(), "drawable", "com.yinmotion.MTAmashup");
 	            //Log.v(TAG, "id : "+"line_"+XMLfunctions.getValue(line, "name"));
 	            iv.setImageResource(imgId);
-	            
-	            iv.setOnClickListener(new View.OnClickListener() {
-					
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-						showUpStatusDetail(imgId, line);
-						
-					}
-				});
+
 	        }
 	        else
 	        {
@@ -665,16 +664,16 @@ public class MTAactivity extends Activity {
 	            Log.v(TAG, "id : "+"line_"+XMLfunctions.getValue(line, "name"));
 	            iv.setImageResource(imgId);
 	            
-	            
-	            iv.setOnClickListener(new View.OnClickListener() {
-					
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-						showDownStatusDetail(imgId, line);
-						
-					}
-				});
+//	            
+//	            iv.setOnClickListener(new View.OnClickListener() {
+//					
+//					@Override
+//					public void onClick(View v) {
+//						// TODO Auto-generated method stub
+//						showDownStatusDetail(imgId, line);
+//						
+//					}
+//				});
 	        }
 	        else
 	        {
@@ -688,27 +687,34 @@ public class MTAactivity extends Activity {
 	
 	protected void showDownStatusDetail(int iconId, final Element line) {
 		//
-		AlertDialog downdetail = new AlertDialog.Builder(this).
+		currDetailsLine = line;
+		
+		downdetail = new AlertDialog.Builder(this).
 				setTitle(XMLfunctions.getValue(line, "status")).
 				setMessage(Html.fromHtml(XMLfunctions.getValue(line, "plannedworkheadline"))).
 				setIcon(iconId).
 				setPositiveButton("RANT!#?@", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						dialog.cancel();
-						rantIt(line);
+						rantIt();
 					}
 				}).
 				setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						dialog.cancel();
+						isDownDetailsShow = false;
 					}
 				}).create();
+		
 		downdetail.show();
+		
+		isDownDetailsShow = true;
 	}
 
-	protected void rantIt(Element line) {
-		String body = "WTF?#! @"+ XMLfunctions.getValue(line, "Time")+" "+XMLfunctions.getValue(line, "Date")+", " +XMLfunctions.getValue(line, "name")+" train has "+ XMLfunctions.getValue(line, "status").toLowerCase();
-		String subject = XMLfunctions.getValue(line, "name")+" Line has "+ XMLfunctions.getValue(line, "status").toLowerCase();
+	protected void rantIt() {
+		isRanting = true;
+		String body = "WTF?#! @"+ XMLfunctions.getValue(currDetailsLine, "Time")+" "+XMLfunctions.getValue(currDetailsLine, "Date")+", " +XMLfunctions.getValue(currDetailsLine, "name")+" train has "+ XMLfunctions.getValue(currDetailsLine, "status").toLowerCase() + ". Details:"+XMLfunctions.getValue(currDetailsLine, "plannedworkheadline");
+		String subject = XMLfunctions.getValue(currDetailsLine, "name")+" Line has "+ XMLfunctions.getValue(currDetailsLine, "status").toLowerCase();
 		String chooserHeader = "Rant via";
 		
 		doShareIntent(body, subject, chooserHeader);
@@ -728,6 +734,7 @@ public class MTAactivity extends Activity {
 		sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
 		sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, body);
 		startActivity(Intent.createChooser(sharingIntent, chooserHeader));
+		
 	}
 
 	@Override
@@ -738,4 +745,36 @@ public class MTAactivity extends Activity {
         
         return true;
     }
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch (item.getItemId()) {
+		case R.id.about:
+			startAbout();
+			return true;
+			
+		case R.id.alert:
+			return true;
+			
+		case R.id.update_setting:
+			return true;
+			
+		case R.id.exit:
+			finish();
+			return true;
+			
+		default:
+			return super.onOptionsItemSelected(item);
+			
+		}
+		
+	}
+
+	private void startAbout() {
+		Intent aboutIntent = new Intent(this, AboutActivity.class);
+		aboutIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+		startActivity(aboutIntent);
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -14,5 +14,7 @@
     <string name="alert">Alert Setting</string>
     <string name="exit">Exit</string>
     <string name="update_setting">Update Setting</string>
+    <string name="app_version">version 1.0</string>
+    <string name="copyright">Copyright © 2012 Yinmotion\nAll Rights Reserved.</string>
 
 </resources>

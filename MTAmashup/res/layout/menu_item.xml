@@ -2,7 +2,7 @@
 <ImageView  xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main_menu_icon"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:background="@drawable/bump_pattern_large"
     android:duplicateParentState="true"

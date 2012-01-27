@@ -4,12 +4,14 @@
         android:state_focused="true"
         android:state_pressed="false">
         <shape>
+            <corners android:radius="5dp"/>
         	<solid android:color="#66333333" />
     	</shape>
     </item>
 	<item android:state_pressed="true">
 	    <shape>
-        	<solid android:color="#66333333" />
+	        <corners android:radius="5dp"/>
+        	<solid android:color="#44ff0000" />
     	</shape>
 	</item>
 </selector>
