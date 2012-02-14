@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="title_grey">#CCC</color>
+    <color name="title_grey">#e6e6e6</color>
     <color name="yellow">#ffcc00</color>
     
 </resources>

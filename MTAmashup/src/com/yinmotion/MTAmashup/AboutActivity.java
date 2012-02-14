@@ -12,11 +12,11 @@ public class AboutActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
         
         setContentView(R.layout.about);
         
-        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.app_title);
+        //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.app_title);
         
         Button closeBtn = (Button) findViewById(R.id.button_ok); 
         closeBtn.setOnClickListener(new OnClickListener() {
