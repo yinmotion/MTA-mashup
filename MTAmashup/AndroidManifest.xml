@@ -4,8 +4,11 @@
     android:versionCode="1"
     android:versionName="1.0" android:installLocation="preferExternal">
     <uses-sdk android:minSdkVersion="10"/>
+    <uses-library android:required="true" android:name="com.google.android.maps"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:icon="@drawable/mta_launcher"
@@ -23,6 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name="AboutActivity" android:launchMode="singleInstance"></activity>
+        <activity android:name="MapActivity"></activity>
         
     </application>
 
