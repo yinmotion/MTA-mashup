@@ -689,9 +689,19 @@ public class MTAactivity extends Activity {
 		//
 		currDetailsLine = line;
 		
+		String sText = XMLfunctions.getValue(line, "text");
+		Integer iFirst = sText.indexOf("<P>");
+		Integer iLast = sText.indexOf("</P>");
+		
+		String sDetails = "";
+		if(iFirst>-1 && iLast>-1){
+			sDetails = sText.substring(sText.indexOf("<P>"), sText.lastIndexOf("</P>"));
+			Log.v(TAG, "sDetails = "+sDetails);
+		}
+		
 		downdetail = new AlertDialog.Builder(this).
 				setTitle(XMLfunctions.getValue(line, "status")).
-				setMessage(Html.fromHtml(XMLfunctions.getValue(line, "plannedworkheadline"))).
+				setMessage(Html.fromHtml(sDetails)).
 				setIcon(iconId).
 				setPositiveButton("RANT!#?@", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {

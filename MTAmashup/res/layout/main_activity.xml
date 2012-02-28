@@ -8,25 +8,14 @@
 	    android:id="@+id/main_container"
 	    android:layout_width="fill_parent"
     	android:layout_height="fill_parent"
-    	android:orientation="vertical" >
+    	android:orientation="vertical"
+    	android:background="@drawable/splash_bg" >
 	    
-	    <ImageView
-	        android:id="@+id/splash_tracks"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:src="@drawable/splash_tracks" />
-	
-	    <ImageView
-	        android:id="@+id/platform_edge"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:src="@drawable/splash_platform_edg"
-	        android:layout_gravity="bottom" />
 		
 	</FrameLayout>
 	<LinearLayout
 		    android:layout_width="wrap_content"
-		    android:layout_height="500px"
+		    android:layout_height="400dp"
 		    android:layout_gravity="center_horizontal"
 		     
 		    >
