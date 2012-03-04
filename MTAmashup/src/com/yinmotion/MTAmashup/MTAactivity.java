@@ -690,12 +690,12 @@ public class MTAactivity extends Activity {
 		currDetailsLine = line;
 		
 		String sText = XMLfunctions.getValue(line, "text");
-		Integer iFirst = sText.indexOf("<P>");
-		Integer iLast = sText.indexOf("</P>");
+		Integer iFirst = sText.indexOf("<HTML>");
+		Integer iLast = sText.indexOf("</HTML>");
 		
 		String sDetails = "";
 		if(iFirst>-1 && iLast>-1){
-			sDetails = sText.substring(sText.indexOf("<P>"), sText.lastIndexOf("</P>"));
+			sDetails = sText.substring(sText.indexOf("<HTML>"), sText.lastIndexOf("</HTML>"));
 			Log.v(TAG, "sDetails = "+sDetails);
 		}
 		
@@ -723,7 +723,7 @@ public class MTAactivity extends Activity {
 
 	protected void rantIt() {
 		isRanting = true;
-		String body = "WTF?#! @"+ XMLfunctions.getValue(currDetailsLine, "Time")+" "+XMLfunctions.getValue(currDetailsLine, "Date")+", " +XMLfunctions.getValue(currDetailsLine, "name")+" train has "+ XMLfunctions.getValue(currDetailsLine, "status").toLowerCase() + ". Details:"+XMLfunctions.getValue(currDetailsLine, "plannedworkheadline");
+		String body = "WTF?#! @"+ XMLfunctions.getValue(currDetailsLine, "Time")+" "+XMLfunctions.getValue(currDetailsLine, "Date")+", " +XMLfunctions.getValue(currDetailsLine, "name")+" train has "+ XMLfunctions.getValue(currDetailsLine, "status").toLowerCase();// + ". Details:"+XMLfunctions.getValue(currDetailsLine, "plannedworkheadline");
 		String subject = XMLfunctions.getValue(currDetailsLine, "name")+" Line has "+ XMLfunctions.getValue(currDetailsLine, "status").toLowerCase();
 		String chooserHeader = "Rant via";
 		

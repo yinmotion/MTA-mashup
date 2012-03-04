@@ -21,7 +21,7 @@ public class LineStatusData extends Application {
 	private ArrayList<Element> aUps;
 	private ArrayList<Element> aDowns;
 	private ArrayList<Integer> aMainMenu;
-	private String status;
+	private String status = "";
 	
 	public void setStatusData(Document doc){
 		_doc = doc;
@@ -83,16 +83,20 @@ public class LineStatusData extends Application {
 	
 	public String getAllStatus(){
 		
-		if(status == null){
-			status += "Ups: ";	
+		if(status == ""){
+			status += "Ups:\n";	
 			for(int i=0; i<aUps.size(); i++){
 				Element line = aUps.get(i);
-				status += XMLfunctions.getValue(line, "name") + " Line : "+ XMLfunctions.getValue(line, "status") + " updated @"+XMLfunctions.getValue(line, "Time")+" "+XMLfunctions.getValue(line, "Date") + ".   ";
+				String time = XMLfunctions.getValue(line, "Time");
+				if(time!=""){
+					time = " updated @"+ time + " " +XMLfunctions.getValue(line, "Date");
+				}
+				status += XMLfunctions.getValue(line, "name") + " Line : "+ XMLfunctions.getValue(line, "status") + time + ".\n";
 			}
-			status += "Downs: ";
+			status += "\nDowns:\n";
 			for(int i=0; i<aDowns.size(); i++){
 				Element line = aDowns.get(i);
-				status += XMLfunctions.getValue(line, "name") + " Line : "+ XMLfunctions.getValue(line, "status") + " updated @"+XMLfunctions.getValue(line, "Time")+" "+XMLfunctions.getValue(line, "Date") + ".   ";
+				status += XMLfunctions.getValue(line, "name") + " Line : "+ XMLfunctions.getValue(line, "status") + " updated @"+XMLfunctions.getValue(line, "Time")+" "+XMLfunctions.getValue(line, "Date") + ".\n";
 			}
 		}
 		return status;
