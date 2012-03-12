@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item android:id="@+id/about" android:title="@string/about" android:icon="@android:drawable/ic_menu_info_details"></item>
-    <item android:id="@+id/alert" android:title="@string/alert" android:icon="@android:drawable/ic_dialog_alert"/>
-    <item android:id="@+id/update_setting" android:title="@string/update_setting" android:icon="@android:drawable/ic_menu_agenda"></item>
     <item android:id="@+id/exit" android:title="@string/exit" android:icon="@android:drawable/ic_menu_close_clear_cancel"></item>
     
 

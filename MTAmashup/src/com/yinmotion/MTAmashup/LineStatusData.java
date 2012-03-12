@@ -74,8 +74,9 @@ public class LineStatusData extends Application {
 			aMainMenu = new ArrayList<Integer>();
 			
 			aMainMenu.add(0, R.drawable.menu_icons_refresh);
-			aMainMenu.add(1, R.drawable.menu_icons_setting);
-			aMainMenu.add(2, R.drawable.menu_icons_share);
+			aMainMenu.add(1, R.drawable.menu_icons_share);
+			aMainMenu.add(2, R.drawable.menu_icons_locale);
+			aMainMenu.add(3, R.drawable.menu_icons_setting);
 		}
 		
 		return aMainMenu;

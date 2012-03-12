@@ -435,6 +435,7 @@ public class MTAactivity extends Activity {
 			return;
 		}
 		aMainMenu = ((LineStatusData)getApplication()).getMainMenu();
+		
 		menuGrid = (GridView) findViewById(R.id.main_menu);
 		menuGrid.setAdapter(new MenuListAdapter());
 		menuGrid.setOnItemClickListener(new OnItemClickListener() {
@@ -449,15 +450,19 @@ public class MTAactivity extends Activity {
 				break;
 				
 				case 1:
-					openOptionsMenu();
-				break;
-				
-				case 2:
 					shareIt();
 				break;
 				
+				case 2:
+					openMap();
+				break;
+				
+				case 3:
+					openOptionsMenu();
+				break;
+				
 				default:
-					break;
+				
 				}
 			}
 		});
@@ -465,6 +470,11 @@ public class MTAactivity extends Activity {
 		menuGrid.setVisibility(0);
 	}
 	
+	protected void openMap() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public class MenuListAdapter extends BaseAdapter{
 		
 		public MenuListAdapter(){
@@ -473,7 +483,7 @@ public class MTAactivity extends Activity {
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return 3;
+			return 4;
 		}
 
 		@Override
@@ -701,7 +711,8 @@ public class MTAactivity extends Activity {
 		
 		downdetail = new AlertDialog.Builder(this).
 				setTitle(XMLfunctions.getValue(line, "status")).
-				setMessage(Html.fromHtml(sDetails)).
+				//setMessage(Html.fromHtml(sDetails)).
+				setMessage(Html.fromHtml(sText)).
 				setIcon(iconId).
 				setPositiveButton("RANT!#?@", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
@@ -763,11 +774,11 @@ public class MTAactivity extends Activity {
 			startAbout();
 			return true;
 			
-		case R.id.alert:
-			return true;
-			
-		case R.id.update_setting:
-			return true;
+//		case R.id.alert:
+//			return true;
+//			
+//		case R.id.update_setting:
+//			return true;
 			
 		case R.id.exit:
 			finish();

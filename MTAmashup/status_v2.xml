@@ -1,0 +1,458 @@
+<service><responsecode>0</responsecode><timestamp>2/28/2012 4:34:30 PM</timestamp><subway>
+  <line>
+    <name>123</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>456</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>7</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>ACE</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>BDFM</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>G</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>JZ</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>L</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>NQR</name>
+    <status>SERVICE CHANGE</status>
+    <text>
+                    &lt;span class="TitleServiceChange" &gt;Service Change&lt;/span&gt;
+                    &lt;span class="DateStyle"&gt;
+                    &amp;nbsp;Posted:&amp;nbsp;02/28/2012&amp;nbsp; 4:23PM
+                    &lt;/span&gt;
+                    &lt;br/&gt;
+                    &lt;br/&gt;
+                  &lt;P&gt;Due to mechanical problems at the &lt;STRONG&gt;Prospect Park Station&lt;/STRONG&gt;, Uptown [Q] trains are running on the [N] line between the &lt;STRONG&gt;Coney Island-Stillwell Avenue Station&lt;/STRONG&gt; and the &lt;STRONG&gt;Dekalb Avenue Station&lt;/STRONG&gt;.&lt;/P&gt;
+&lt;P&gt;Please expect delays in service on [Q] trains at this time.  &lt;/P&gt;
+                &lt;br/&gt;
+                &lt;br/&gt;
+              </text>
+    <Date>02/28/2012</Date>
+    <Time> 4:23PM</Time>
+  </line>
+  <line>
+    <name>S</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>SIR</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+</subway><bus>
+  <line>
+    <name>B1 - B83</name>
+    <status>SERVICE CHANGE</status>
+    <text>
+                  &lt;span class="TitleServiceChange" &gt;Service Change&lt;/span&gt;
+                
+              &lt;span class="DateStyle"&gt;
+              &amp;nbsp;Posted:&amp;nbsp;02/28/2012&amp;nbsp; 9:44AM
+              &lt;/span&gt;
+              &lt;br/&gt;
+		 &lt;br/&gt;
+              &lt;P&gt;&lt;STRONG&gt;B61 &lt;/STRONG&gt;bus detoured in both directions due to street milling on 8 Av at 9 St. detour as follows:  &lt;/P&gt;
+&lt;P&gt;&lt;STRONG&gt;Westbound:&lt;/STRONG&gt; Via 9 St, right on 7 Av, left on Prospect Av, right on Prospect Place W and regular route. &lt;/P&gt;
+&lt;P&gt;&lt;STRONG&gt;Eastbound:&lt;/STRONG&gt; Via 15 St, right on 7 Av, left on 9 St and regular route.&lt;/P&gt;
+&lt;P&gt;Please allow additional travel time.&lt;/P&gt;
+              &lt;br/&gt;
+            </text>
+    <Date>02/28/2012</Date>
+    <Time> 9:44AM</Time>
+  </line>
+  <line>
+    <name>B100 - B103</name>
+    <status>PLANNED WORK</status>
+    <text>
+                  &lt;span class="TitlePlannedWork" &gt;Planned Detour&lt;/span&gt;
+                
+              &lt;span class="DateStyle"&gt;
+              &amp;nbsp;Posted:&amp;nbsp;02/26/2012&amp;nbsp;12:00AM
+              &lt;/span&gt;
+              &lt;br/&gt;
+		 &lt;br/&gt;
+              &lt;HTML&gt;&lt;BODY&gt;&lt;a style="cursor:pointer; text-decoration:underline" onclick=ShowHide(36501);&gt;
+&lt;b&gt;B103 bus route adjustment
+&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;div id= 36501 style="display:none;" &gt;&lt;/b&gt;Effective Sunday, Feb 26
+&lt;br&gt;
+&lt;br&gt;Westbound route adjustment in Park Slope, Gowanus and Boerum Hill.
+&lt;br&gt;
+&lt;br&gt;&lt;b&gt;Westbound&lt;/b&gt;:  Buses will operate non-stop from Prospect Expwy to 
+&lt;br&gt;Flatbush Av via 7 Av, 9 St and 5 Av instead of 3 Av.
+&lt;br&gt;
+&lt;br&gt;Customers using the westbound bus stop on 3 Av at State St should use
+&lt;br&gt;the bus stop on Livingston St at Nevins St instead. 
+&lt;br&gt;
+&lt;br&gt;&lt;b&gt;Eastbound&lt;/b&gt;:  Route and bus stops remain unchanged.
+&lt;br&gt;&lt;b&gt;
+&lt;br&gt;&lt;/div&gt;&lt;/BODY&gt;&lt;/HTML&gt;&lt;/b&gt;&lt;br/&gt;
+              &lt;br/&gt;
+            </text>
+    <Date>02/26/2012</Date>
+    <Time>12:00AM</Time>
+  </line>
+  <line>
+    <name>BM1 - BM5</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>BX1 - BX55</name>
+    <status>SERVICE CHANGE</status>
+    <text>
+                  &lt;span class="TitleServiceChange" &gt;Service Change&lt;/span&gt;
+                
+              &lt;span class="DateStyle"&gt;
+              &amp;nbsp;Posted:&amp;nbsp;02/28/2012&amp;nbsp; 8:02AM
+              &lt;/span&gt;
+              &lt;br/&gt;
+		 &lt;br/&gt;
+              &lt;P&gt;&lt;STRONG&gt;Bx12&lt;/STRONG&gt; bus detoured westbound due to construction at Bailey Av and Heath Av. detour as follows:&lt;/P&gt;
+&lt;P&gt;&lt;STRONG&gt;Westbound:&lt;/STRONG&gt; Via E Fordham Rd, past Sedgwick Ave, right on Landing Pl, left on Cedar Av, left on E. Fordham Rd and regular route. &lt;/P&gt;
+&lt;P&gt;Please allow additional travel time.&lt;/P&gt;
+              &lt;br/&gt;
+            
+                  &lt;span class="TitleServiceChange" &gt;Service Change&lt;/span&gt;
+                
+              &lt;span class="DateStyle"&gt;
+              &amp;nbsp;Posted:&amp;nbsp;02/25/2012&amp;nbsp; 8:07PM
+              &lt;/span&gt;
+              &lt;br/&gt;
+		 &lt;br/&gt;
+              &lt;P&gt;&lt;STRONG&gt;Bx6&lt;/STRONG&gt;, &lt;STRONG&gt;Bx15&lt;/STRONG&gt;, &lt;STRONG&gt;Bx21&lt;/STRONG&gt; &amp; &lt;STRONG&gt;Bx55&lt;/STRONG&gt; bus stops at 3 Av &amp; E 163 St have been temporarily moved until further notice due to road work.&lt;/P&gt;
+&lt;P&gt;&lt;STRONG&gt;Bx15&lt;/STRONG&gt;, &lt;STRONG&gt;Bx21&lt;/STRONG&gt; &amp; &lt;STRONG&gt;Bx55&lt;/STRONG&gt; south bound buses at 3 Av &amp; E 163 St have been moved to near side. &lt;/P&gt;
+&lt;P&gt;&lt;STRONG&gt;Bx6&lt;/STRONG&gt; east bound buses at E 163 St &amp; 3 Av have been moved to far side. &lt;/P&gt;
+&lt;P&gt;Please allow additional travel time. &lt;/P&gt;
+              &lt;br/&gt;
+            </text>
+    <Date>02/28/2012</Date>
+    <Time> 8:02AM</Time>
+  </line>
+  <line>
+    <name>BXM1 - BXM18</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>M1 - M116</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>Q1 - Q113</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>QM1 - QM25</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>S40 - S98</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+  <line>
+    <name>x1 - x68</name>
+    <status>GOOD SERVICE</status>
+    <text />
+    <Date></Date>
+    <Time></Time>
+  </line>
+</bus><BT>
+  <line>
+    <name>Throgs Neck</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/26/2012</Date>
+    <Time> 7:20AM</Time>
+  </line>
+  <line>
+    <name>Henry Hudson</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/26/2012</Date>
+    <Time> 5:42AM</Time>
+  </line>
+  <line>
+    <name>Marine Parkway</name>
+    <status>SERVICE CHANGE</status>
+    <text>&lt;P style="MARGIN: 0in 0in 0pt" class=MsoPlainText&gt;&lt;FONT face=Calibri&gt;BRIDGE LIFT AT MARINE PARKWAY BRIDGE&amp;nbsp;IN PROGRESS&lt;/FONT&gt;&lt;/P&gt;</text>
+    <url></url>
+    <Date>02/28/2012</Date>
+    <Time> 4:27PM</Time>
+  </line>
+  <line>
+    <name>Bronx-Whitestone</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/25/2012</Date>
+    <Time> 5:01PM</Time>
+  </line>
+  <line>
+    <name>Brooklyn-Battery</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/24/2012</Date>
+    <Time> 5:37PM</Time>
+  </line>
+  <line>
+    <name>Queens Midtown</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/18/2012</Date>
+    <Time> 9:56AM</Time>
+  </line>
+  <line>
+    <name>Robert F. Kennedy</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/28/2012</Date>
+    <Time> 9:25AM</Time>
+  </line>
+  <line>
+    <name>Cross Bay</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/26/2012</Date>
+    <Time> 5:43AM</Time>
+  </line>
+  <line>
+    <name>Verrazano-Narrows</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/27/2012</Date>
+    <Time> 1:35PM</Time>
+  </line>
+</BT><LIRR>
+  <line>
+    <name>City Terminal Zone</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/27/2012</Date>
+    <Time>10:21AM</Time>
+  </line>
+  <line>
+    <name>Babylon</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/27/2012</Date>
+    <Time> 8:29AM</Time>
+  </line>
+  <line>
+    <name>Far Rockaway</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/27/2012</Date>
+    <Time> 8:28AM</Time>
+  </line>
+  <line>
+    <name>Hempstead</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/27/2012</Date>
+    <Time> 8:28AM</Time>
+  </line>
+  <line>
+    <name>Long Beach</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/27/2012</Date>
+    <Time> 8:28AM</Time>
+  </line>
+  <line>
+    <name>Montauk</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/28/2012</Date>
+    <Time> 2:35PM</Time>
+  </line>
+  <line>
+    <name>Oyster Bay</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/27/2012</Date>
+    <Time> 2:19PM</Time>
+  </line>
+  <line>
+    <name>Port Jefferson</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/28/2012</Date>
+    <Time> 2:51PM</Time>
+  </line>
+  <line>
+    <name>Port Washington</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/24/2012</Date>
+    <Time>10:05PM</Time>
+  </line>
+  <line>
+    <name>Ronkonkoma</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/26/2012</Date>
+    <Time> 7:15PM</Time>
+  </line>
+  <line>
+    <name>West Hempstead</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/27/2012</Date>
+    <Time>12:30AM</Time>
+  </line>
+</LIRR><MetroNorth>
+  <line>
+    <name>Hudson</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/22/2012</Date>
+    <Time>10:54AM</Time>
+  </line>
+  <line>
+    <name>Harlem</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/24/2012</Date>
+    <Time> 8:08AM</Time>
+  </line>
+  <line>
+    <name>Wassaic</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/24/2012</Date>
+    <Time> 1:29PM</Time>
+  </line>
+  <line>
+    <name>New Haven</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/23/2012</Date>
+    <Time> 7:38PM</Time>
+  </line>
+  <line>
+    <name>New Canaan</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/09/2012</Date>
+    <Time>10:15AM</Time>
+  </line>
+  <line>
+    <name>Danbury</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url>Good Service</url>
+    <Date>02/20/2012</Date>
+    <Time> 7:21PM</Time>
+  </line>
+  <line>
+    <name>Waterbury</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>02/23/2012</Date>
+    <Time> 8:14PM</Time>
+  </line>
+  <line>
+    <name>Pascack Valley</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>11/28/2011</Date>
+    <Time> 9:22AM</Time>
+  </line>
+  <line>
+    <name>Port Jervis</name>
+    <status>GOOD SERVICE</status>
+    <text></text>
+    <url></url>
+    <Date>12/02/2011</Date>
+    <Time> 6:21AM</Time>
+  </line>
+</MetroNorth></service>
