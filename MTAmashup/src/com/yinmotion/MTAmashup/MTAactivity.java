@@ -45,6 +45,7 @@ import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
@@ -396,6 +397,7 @@ public class MTAactivity extends Activity {
 	private AlertDialog downdetail;
 	private boolean isRanting;
 	private Element currDetailsLine;
+	private LinearLayout menuContainer;
 	
 	protected void onShaking() {
 		Log.v(TAG, "onShaking");
@@ -430,10 +432,10 @@ public class MTAactivity extends Activity {
 		// TODO Auto-generated method stub
 		menuEnabled = true;
 		
-		if(menuGrid!=null){
-			menuGrid.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
-			return;
-		}
+		menuContainer = (LinearLayout) findViewById(R.id.main_menu_container);
+		
+		menuContainer.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
+		
 		aMainMenu = ((LineStatusData)getApplication()).getMainMenu();
 		
 		menuGrid = (GridView) findViewById(R.id.main_menu);
@@ -467,12 +469,14 @@ public class MTAactivity extends Activity {
 			}
 		});
 		
-		menuGrid.setVisibility(0);
+		menuContainer.setVisibility(0);
 	}
 	
 	protected void openMap() {
 		// TODO Auto-generated method stub
-		
+		Intent mapIntent = new Intent(this, com.yinmotion.MTAmashup.MapActivity.class);
+		mapIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+		startActivity(mapIntent);
 	}
 
 	public class MenuListAdapter extends BaseAdapter{
@@ -483,7 +487,7 @@ public class MTAactivity extends Activity {
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return 4;
+			return aMainMenu.size();
 		}
 
 		@Override
@@ -529,7 +533,7 @@ public class MTAactivity extends Activity {
 		
 		Animation fadeout = AnimationUtils.loadAnimation(this, android.R.anim.fade_out);
 		fadeout.setFillAfter(true);		
-		menuGrid.startAnimation(fadeout);
+		menuContainer.startAnimation(fadeout);
 		menuEnabled = false;
 		
 		loadXMLData();

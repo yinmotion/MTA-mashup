@@ -3,6 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-
+	<com.yinmotion.MTAmashup.ExtendedMapView
+	    android:id="@+id/mapview"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:clickable="true"
+	    android:enabled="true"
+	    android:apiKey="01txL7fVJz3cRP8d6ATUB7jBPmshOkir9QgDShw"
+	/>
 </LinearLayout>

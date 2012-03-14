@@ -5,8 +5,8 @@
     <string name="app_name">MTA Ups &amp; Downs</string>
     <string name="MTA_uptodate">MTA UpToDate</string>
     <string name="wait_for_signal">WAIT FOR SIGNAL</string>
-    <string name="ups">Ups</string>
-    <string name="downs">Downs</string>
+    <string name="ups">UPs</string>
+    <string name="downs">DOWNs</string>
     <string name="no_internet_connection">No Internet Connection</string>
     <string name="connect_to_internet">Please connect to internet to get the latest MTA service status update.</string>
     <string name="ok">OK</string>

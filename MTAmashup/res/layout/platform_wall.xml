@@ -37,19 +37,37 @@
 	       android:paddingBottom="20dp"
 	       android:orientation="vertical"
 	       android:layout_gravity="center_horizontal">
-	</LinearLayout>    
-	<GridView
-	    android:id="@+id/main_menu"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:numColumns="4"
-	    android:horizontalSpacing="1dp"
-	    android:stretchMode="columnWidth"
+	</LinearLayout>
+	<LinearLayout
+	    android:id="@+id/main_menu_container"
 	    android:layout_gravity="bottom"
-	    android:drawSelectorOnTop="true"
-	    android:columnWidth="40dp"
-	    android:listSelector="@drawable/menu_selector"
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
 	    android:visibility="invisible"
-	    />
+	    >
+		<View
+		    android:id="@+id/main_menu_bar"
+	    	android:layout_width="match_parent" 
+	    	android:layout_height="5dp"
+	    	android:background="@color/yellow"
+		    
+		    android:layout_marginBottom="1dp"
+		    />
+		
+		<GridView
+		    android:id="@+id/main_menu"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:verticalSpacing="0dp"
+		    android:numColumns="4"
+		    android:horizontalSpacing="1dp"
+		    android:stretchMode="columnWidth"
+		    android:drawSelectorOnTop="true"
+		    android:listSelector="@drawable/menu_selector"
+		    
+		    />
+	    
+	</LinearLayout>    
 
 </FrameLayout>
