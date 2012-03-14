@@ -21,7 +21,7 @@ public class ExtendedMapView extends MapView {
 	public ExtendedMapView(Context c, AttributeSet attrs) {
 		super(c, attrs);  
 		context = c;
-		  
+		init();  
 	 }
 	
 	public void init(){
@@ -39,12 +39,12 @@ public class ExtendedMapView extends MapView {
 //	  return super.onTouchEvent(ev);
 //	 }
 //	 
-//	@Override
-//	 public boolean onTouchEvent(MotionEvent ev) {  
-//	  if (this.gestureDetector.onTouchEvent(ev))  
-//	   return true;  
-//	  else  
-//	   return super.onTouchEvent(ev);  
-//	 } 
+	@Override
+	 public boolean onTouchEvent(MotionEvent ev) {  
+	  if (this.gestureDetector.onTouchEvent(ev))  
+	   return true;  
+	  else  
+	   return super.onTouchEvent(ev);  
+	 } 
 
 }

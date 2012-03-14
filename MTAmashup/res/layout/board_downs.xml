@@ -51,7 +51,7 @@
             android:textSize="14dp"
             android:textStyle="bold"
             android:typeface="sans"
-            android:paddingLeft="5dp"
+            android:paddingLeft="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>    
                

@@ -10,11 +10,9 @@ import com.google.android.maps.MyLocationOverlay;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 import com.google.android.maps.Projection;
-import com.yinmotion.MTAmashup.MapActivity.MyLocationListener;
 
 import android.content.Context;
-import android.gesture.GestureOverlayView;
-import android.gesture.GestureOverlayView.OnGestureListener;
+import android.view.GestureDetector.OnGestureListener;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
@@ -23,7 +21,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector.OnDoubleTapListener;
 import android.view.MotionEvent;
-import android.view.ViewGroup;
 import android.view.Window;
 
 
@@ -31,8 +28,6 @@ public class MapActivity extends com.google.android.maps.MapActivity implements 
 	
 	public static final String TAG = "MapActivity";
 	
-	
-	private MyLocationOverlay myLocOverlay;
 	private MapController mc;
 
 	private LocationManager mlocManager;
@@ -73,7 +68,7 @@ public class MapActivity extends com.google.android.maps.MapActivity implements 
 	    Log.v(TAG, "mapView = "+mapView);
 	    
 	    mc = this.mapView.getController();  
-	    mc.setZoom(16);  
+	    mc.setZoom(17);  
 	    
 	    mlocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 	    
@@ -100,7 +95,7 @@ public class MapActivity extends com.google.android.maps.MapActivity implements 
 	
 	private void addMarker(GeoPoint point){
 		if(!markerAdded){
-			OverlayItem item = new OverlayItem(point, "Me", "I'm here");
+			OverlayItem item = new OverlayItem(point, "I'M HERE :-)", "Latitude:"+point.getLatitudeE6()*1E6+"\nLongitude:"+point.getLongitudeE6()*1E6);
 			mapOverlay.addOverlay(item);
 			mapOverlays.add(mapOverlay);
 			markerAdded = true;
@@ -122,11 +117,6 @@ public class MapActivity extends com.google.android.maps.MapActivity implements 
 
 		@Override
 		public void onLocationChanged(Location location) {
-			// TODO Auto-generated method stub
-//			 List<Overlay> overlays = mapView.getOverlays();
-//			   myLocOverlay = new MyLocationOverlay(this, mapView);
-//			   overlays.add(myLocOverlay);
-//			   myLocOverlay.enableMyLocation();
 
 			   // definitely need what's below
 			   int lat = (int) (location.getLatitude() * 1E6);
@@ -190,27 +180,41 @@ public class MapActivity extends com.google.android.maps.MapActivity implements 
 	}
 
 	@Override
-	public void onGesture(GestureOverlayView overlay, MotionEvent event) {
+	public boolean onDown(MotionEvent e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+			float velocityY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void onLongPress(MotionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void onGestureCancelled(GestureOverlayView overlay, MotionEvent event) {
+	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
+			float distanceY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void onShowPress(MotionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void onGestureEnded(GestureOverlayView overlay, MotionEvent event) {
+	public boolean onSingleTapUp(MotionEvent e) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onGestureStarted(GestureOverlayView overlay, MotionEvent event) {
-		// TODO Auto-generated method stub
-		
+		return false;
 	}
 	
 }
