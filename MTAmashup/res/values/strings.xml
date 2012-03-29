@@ -11,11 +11,11 @@
     <string name="connect_to_internet">Please connect to internet to get the latest MTA service status update.</string>
     <string name="ok">OK</string>
     <string name="about">About</string>
-    <string name="alert">Alert Setting</string>
+    <string name="alert">Alert</string>
     <string name="exit">Exit</string>
     <string name="update_setting">Update Setting</string>
     <string name="app_version">version 1.0</string>
     <string name="copyright">Copyright © 2012 Yinmotion\nAll Rights Reserved.</string>
-    <string name="add_notification">Add Notification</string>
+    <string name="add_alert">Add alert</string>
 
 </resources>

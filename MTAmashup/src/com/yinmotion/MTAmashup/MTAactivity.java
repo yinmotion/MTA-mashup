@@ -778,8 +778,9 @@ public class MTAactivity extends Activity {
 			startAbout();
 			return true;
 			
-//		case R.id.alert:
-//			return true;
+		case R.id.alert:
+			startAlert();
+			return true;
 //			
 //		case R.id.update_setting:
 //			return true;
@@ -793,6 +794,13 @@ public class MTAactivity extends Activity {
 			
 		}
 		
+	}
+
+	private void startAlert() {
+		// TODO Auto-generated method stub
+		Intent alertIntent = new Intent(this, SetNotifyActivity.class);
+		//alertIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+		startActivity(alertIntent);
 	}
 
 	private void startAbout() {
