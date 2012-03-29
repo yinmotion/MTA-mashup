@@ -29,16 +29,7 @@ public class ExtendedMapView extends MapView {
 		gestureDetector.setOnDoubleTapListener((OnDoubleTapListener) context);  
 		
 	}
-	
-//	public boolean onTouchEvent(MotionEvent ev) {
-//	  if (ev.getAction()==MotionEvent.ACTION_UP) {
-//	   //do your thing
-//		  Log.v("MapView", "Touch");
-//		  return true;
-//	  }
-//	  return super.onTouchEvent(ev);
-//	 }
-//	 
+	 
 	@Override
 	 public boolean onTouchEvent(MotionEvent ev) {  
 	  if (this.gestureDetector.onTouchEvent(ev))  
