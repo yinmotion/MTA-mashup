@@ -798,7 +798,7 @@ public class MTAactivity extends Activity {
 
 	private void startAlert() {
 		// TODO Auto-generated method stub
-		Intent alertIntent = new Intent(this, SetNotifyActivity.class);
+		Intent alertIntent = new Intent(this, AddNotifyActivity.class);
 		//alertIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 		startActivity(alertIntent);
 	}
