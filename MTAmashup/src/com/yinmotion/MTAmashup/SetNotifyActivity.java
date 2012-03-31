@@ -3,6 +3,7 @@ package com.yinmotion.MTAmashup;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewManager;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -47,16 +48,10 @@ public class SetNotifyActivity extends Activity {
 			}
 		});
         
-//        View addNotify = (View) findViewById(R.id.AddNotification);
-//        
-//        addNotify.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//		});
+        View deleteBtn = (View) findViewById(R.id.setnotify_delete);
+        ViewManager menu = (ViewManager)deleteBtn.getParent();
+        menu.removeView((View) findViewById(R.id.divider_delete));
+        menu.removeView(deleteBtn);
         
 	}
 	
