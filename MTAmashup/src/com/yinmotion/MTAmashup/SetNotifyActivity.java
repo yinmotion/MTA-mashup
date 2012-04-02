@@ -1,6 +1,11 @@
 package com.yinmotion.MTAmashup;
 
+import java.util.Calendar;
+
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
+import android.app.TimePickerDialog.OnTimeSetListener;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewManager;
@@ -8,10 +13,19 @@ import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
+import android.widget.TimePicker;
 
 public class SetNotifyActivity extends Activity {
+	protected static final int TIME_DIALOG_ID = 0;
+	protected static final int LINES_DIALOG_ID = 1;
+	private static boolean isPM = false;
 	private CheckBox alertCheckbox;
 	private CheckBox vibrateCheckbox;
+	private int hour;
+	private int min;
+	private TextView txtTimeCode;
+	
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -22,6 +36,12 @@ public class SetNotifyActivity extends Activity {
         
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.app_title);
         
+        initMenu();
+        
+        initTimePicker();
+        initSubwaylinesPicker();
+        
+        //
         View turnAlertOn = (View) findViewById(R.id.view_turn_alert_on);
         
         alertCheckbox = (CheckBox) findViewById(R.id.checkbox_alert);
@@ -48,13 +68,87 @@ public class SetNotifyActivity extends Activity {
 			}
 		});
         
-        View deleteBtn = (View) findViewById(R.id.setnotify_delete);
-        ViewManager menu = (ViewManager)deleteBtn.getParent();
-        menu.removeView((View) findViewById(R.id.divider_delete));
-        menu.removeView(deleteBtn);
+        //
+        txtTimeCode = (TextView) findViewById(R.id.txt_timecode);
         
+        Calendar calender = Calendar.getInstance();
+        hour = calender.get(Calendar.HOUR_OF_DAY);
+        min = calender.get(Calendar.MINUTE);
+        
+        updateTimeCode();
 	}
 	
+	private void initTimePicker() {
+		View timePicker = (View) findViewById(R.id.view_time);
+		timePicker.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+					
+				showDialog(TIME_DIALOG_ID);
+			}
+		});
+	}
+
+	private void initSubwaylinesPicker() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	protected Dialog onCreateDialog(int id){
+		switch(id){
+		case TIME_DIALOG_ID:
+			return new TimePickerDialog(this, onTimeSetListener, hour, min, false);
+			
+		case LINES_DIALOG_ID:
+			//return null;
+			
+		}
+		
+		return null;
+	}
+	
+	private OnTimeSetListener onTimeSetListener = new OnTimeSetListener() {
+		
+		@Override
+		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+			// TODO Auto-generated method stub
+			hour = hourOfDay;
+			min = minute;
+			
+			updateTimeCode();
+		}
+	};
+
+	private void initMenu() {
+		View cancel = (View) findViewById(R.id.setnotify_cancel);
+		cancel.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
+		
+		//TODO show/hide deleteBtn based on edit/add mode 
+		View deleteBtn = (View) findViewById(R.id.setnotify_delete);
+		ViewManager menu = (ViewManager)deleteBtn.getParent();
+		menu.removeView((View) findViewById(R.id.divider_delete));
+		menu.removeView(deleteBtn);
+	}
+
+	private void updateTimeCode() {
+		// TODO Auto-generated method stub
+		txtTimeCode.setText(
+				new StringBuilder()
+				.append(leadZero(formatHour(hour))).append(":")
+				.append(leadZero(min))
+				.append(" ")
+				.append(getAMPM()));
+				
+	}
+
 	protected void onVibrateToggle() {
 		// TODO Auto-generated method stub
 		vibrateCheckbox.toggle();
@@ -69,5 +163,35 @@ public class SetNotifyActivity extends Activity {
 	public SetNotifyActivity() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	
+	private static String leadZero(int c) {
+        if (c >= 10)
+            return String.valueOf(c);
+        else
+            return "0" + String.valueOf(c);
+    }
+	
+	private static int formatHour(int iHour) {
+		int h = iHour;
+		if(h>=12){
+			h -= 12;
+			isPM  = true;
+		}else{
+			isPM = false;
+		}
+		
+		return h;
+	}
+	
+	private static String getAMPM(){
+		if(isPM){
+			return "PM";
+		}else{
+			return "AM";
+			
+		}
+		
+	}
+	
 }

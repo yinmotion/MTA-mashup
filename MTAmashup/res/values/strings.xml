@@ -23,5 +23,6 @@
     <string name="turn_vibrate_on">Vibrate</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
+    <string name="no_alert">No alert</string>
 
 </resources>

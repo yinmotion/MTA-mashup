@@ -32,7 +32,23 @@
             android:layout_gravity="center_vertical"/>
 
     </LinearLayout>
-
+	<ImageView
+        android:id="@+id/divider_v"	        
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dark_grey"
+        />
+	<TextView
+            android:id="@+id/text_noalert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_alert"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:paddingLeft="15dp"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_vertical"/>
     <ListView
         android:id="@+id/notify_list"
         android:layout_width="match_parent"
