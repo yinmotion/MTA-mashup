@@ -34,6 +34,7 @@
 				    android:layout_width="wrap_content"
 				    android:layout_height="wrap_content"
 				    android:layout_alignParentRight="true"
+				    android:paddingRight="10dp"
 				    android:layout_centerInParent="true"
 				    android:clickable="false"
 				    />
@@ -137,6 +138,7 @@
 				    android:id="@+id/checkbox_vibrate"
 				    android:layout_width="wrap_content"
 				    android:layout_height="wrap_content"
+				    android:paddingRight="10dp"
 				    android:layout_alignParentRight="true"
 				    android:layout_centerInParent="true"
 				    android:clickable="false"
