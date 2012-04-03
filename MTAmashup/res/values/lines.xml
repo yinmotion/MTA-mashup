@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lines">
+        <item >123</item>
+        <item >456</item>
+        <item >7</item>
+        <item >ace</item>
+        <item >bdfm</item>
+        <item >g</item>
+        <item >jz</item>
+        <item >l</item>
+        <item >nqr</item>
+        <item >s</item>
+        <item >sir</item>
+    </string-array>
+</resources>

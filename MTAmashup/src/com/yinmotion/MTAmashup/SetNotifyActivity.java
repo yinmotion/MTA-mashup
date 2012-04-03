@@ -3,9 +3,12 @@ package com.yinmotion.MTAmashup;
 import java.util.Calendar;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.app.TimePickerDialog.OnTimeSetListener;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnMultiChoiceClickListener;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewManager;
@@ -92,7 +95,15 @@ public class SetNotifyActivity extends Activity {
 
 	private void initSubwaylinesPicker() {
 		// TODO Auto-generated method stub
-		
+		View linePicker = (View) findViewById(R.id.view_lines);
+		linePicker.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showDialog(LINES_DIALOG_ID);				
+			}
+		});
 	}
 	
 	protected Dialog onCreateDialog(int id){
@@ -102,6 +113,37 @@ public class SetNotifyActivity extends Activity {
 			
 		case LINES_DIALOG_ID:
 			//return null;
+			AlertDialog linesDialog = new AlertDialog.Builder(this).
+									setTitle(R.string.select_lines).
+									setMultiChoiceItems(R.array.lines, null, new DialogInterface.OnMultiChoiceClickListener() {
+										
+										@Override
+										public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+											// TODO Auto-generated method stub
+											
+										}
+									}).
+									setNegativeButton(R.string.cancel,
+											new DialogInterface.OnClickListener() {
+										public void onClick(DialogInterface dialog, int whichButton) {
+											dialog.cancel();
+											
+										}
+									}).
+									setPositiveButton(R.string.ok,
+					                    new DialogInterface.OnClickListener() {
+					                    public void onClick(DialogInterface dialog, int whichButton) {
+					                    	
+					                        
+					                    }
+					                }).
+									create();
+			
+			return linesDialog;
+//			Dialog linesDialog = new Dialog(this);
+//			linesDialog.addContentView((View) findViewById(R.layout.picklines_dialog), null);
+//			linesDialog.setTitle(R.string.select_lines);
+//			linesDialog.setCancelable(true);
 			
 		}
 		

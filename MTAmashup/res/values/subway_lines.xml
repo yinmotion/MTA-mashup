@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="line_123" image="line_123.png" type="string"></item>
+    <item name="line_456" image="line_456.png" type="string"></item>
+    <item name="line_7" image="line_7.png" type="string"></item>
+    <item name="line_ace" image="line_ace.png" type="string"></item>
+    <item name="line_bdfm" image="line_bdfm.png" type="string"></item>
+    <item name="line_g" image="line_g.png" type="string"></item>
+    <item name="line_jz" image="line_jz.png" type="string"></item>
+    <item name="line_l" image="line_l.png" type="string"></item>
+    <item name="line_nqr" image="line_nqr.png" type="string"></item>
+    <item name="line_s" image="line_s.png" type="string"></item>
+    <item name="line_sir" image="line_sir.png" type="string"></item>
+</resources>
