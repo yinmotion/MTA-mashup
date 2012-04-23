@@ -1,6 +1,9 @@
 package com.yinmotion.MTAmashup;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -10,18 +13,26 @@ import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnMultiChoiceClickListener;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.view.ViewManager;
 import android.view.Window;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
 public class SetNotifyActivity extends Activity {
 	protected static final int TIME_DIALOG_ID = 0;
 	protected static final int LINES_DIALOG_ID = 1;
+	private static final String TAG = "SetNotifyActivity";
 	private static boolean isPM = false;
 	private CheckBox alertCheckbox;
 	private CheckBox vibrateCheckbox;
@@ -73,16 +84,18 @@ public class SetNotifyActivity extends Activity {
         
         //
         txtTimeCode = (TextView) findViewById(R.id.txt_timecode);
-        
+       
         Calendar calender = Calendar.getInstance();
         hour = calender.get(Calendar.HOUR_OF_DAY);
         min = calender.get(Calendar.MINUTE);
         
         updateTimeCode();
+       
 	}
 	
 	private void initTimePicker() {
 		View timePicker = (View) findViewById(R.id.view_time);
+		
 		timePicker.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -107,22 +120,41 @@ public class SetNotifyActivity extends Activity {
 	}
 	
 	protected Dialog onCreateDialog(int id){
+		
 		switch(id){
 		case TIME_DIALOG_ID:
 			return new TimePickerDialog(this, onTimeSetListener, hour, min, false);
 			
 		case LINES_DIALOG_ID:
 			//return null;
+			final ListView lv = new ListView(this);
+			//Log.v(TAG, "lv = "+lv);
+			String[] linesArray = getResources().getStringArray(R.array.lines);
+			List<String> arrayList = Arrays.asList(linesArray);
+			lv.setAdapter(new PickLineArrayAdapter(this, R.layout.pickline_item, arrayList));
+			lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+			lv.setItemsCanFocus(false);
+			
+			lv.setOnItemClickListener(new OnItemClickListener() {
+
+				@Override
+				public void onItemClick(AdapterView<?> arg0, View arg1,
+						int arg2, long arg3) {
+					onSetLines(lv);
+				}
+			});
+			
 			AlertDialog linesDialog = new AlertDialog.Builder(this).
 									setTitle(R.string.select_lines).
-									setMultiChoiceItems(R.array.lines, null, new DialogInterface.OnMultiChoiceClickListener() {
-										
-										@Override
-										public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-											// TODO Auto-generated method stub
-											
-										}
-									}).
+									setView(lv).
+//									setMultiChoiceItems(R.array.lines, null, new DialogInterface.OnMultiChoiceClickListener() {
+//										
+//										@Override
+//										public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+//											// TODO Auto-generated method stub
+//											
+//										}
+//									}).
 									setNegativeButton(R.string.cancel,
 											new DialogInterface.OnClickListener() {
 										public void onClick(DialogInterface dialog, int whichButton) {
@@ -133,11 +165,13 @@ public class SetNotifyActivity extends Activity {
 									setPositiveButton(R.string.ok,
 					                    new DialogInterface.OnClickListener() {
 					                    public void onClick(DialogInterface dialog, int whichButton) {
-					                    	
-					                        
+					                    	//lv.getSelectedItem();
+					                        onSetLines(lv);
 					                    }
 					                }).
 									create();
+			
+			
 			
 			return linesDialog;
 //			Dialog linesDialog = new Dialog(this);
@@ -150,6 +184,23 @@ public class SetNotifyActivity extends Activity {
 		return null;
 	}
 	
+	protected void onSetLines(ListView lv) {
+		// TODO Auto-generated method stub
+		
+		SparseBooleanArray selectedItems = lv.getCheckedItemPositions();
+		 Log.v(TAG, "selectedItems = "+selectedItems.size());
+		 
+		 
+	    for (int i = 0; i < selectedItems.size(); i++) {
+	    	 Log.v(TAG, "lv = " + selectedItems.valueAt(i));
+	    	
+//	        if (selectedItems.get(i)) {
+//	            String item =  lv.getAdapter().getItem(selectedItems.keyAt(i)).toString();
+//	            Log.v(TAG, "lv = "+item);
+//	        }
+	    }
+	}
+
 	private OnTimeSetListener onTimeSetListener = new OnTimeSetListener() {
 		
 		@Override
