@@ -134,12 +134,13 @@ public class SetNotifyActivity extends Activity {
 			lv.setAdapter(new PickLineArrayAdapter(this, R.layout.pickline_item, arrayList));
 			lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 			lv.setItemsCanFocus(false);
+			lv.setDescendantFocusability(ListView.FOCUS_BLOCK_DESCENDANTS);
 			
 			lv.setOnItemClickListener(new OnItemClickListener() {
 
 				@Override
-				public void onItemClick(AdapterView<?> arg0, View arg1,
-						int arg2, long arg3) {
+				public void onItemClick(AdapterView<?> parent, View view, int position,
+		                long id) {
 					onSetLines(lv);
 				}
 			});

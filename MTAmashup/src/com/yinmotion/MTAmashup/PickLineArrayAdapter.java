@@ -59,10 +59,7 @@ public class PickLineArrayAdapter extends ArrayAdapter<String> {
 										.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 					
 			row = inflater.inflate(R.layout.pickline_item, parent, false);
-			row.setFocusable(false);
-			row.setFocusableInTouchMode(false);
-			row.setPressed(true);
-			row.setBackgroundResource(drawable.list_selector_background);
+			
 			row.setOnClickListener(new OnClickListener() {
 				
 				@Override
