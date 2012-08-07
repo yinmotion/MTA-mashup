@@ -180,6 +180,7 @@ public class MTAactivity extends Activity {
 								setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
 							           public void onClick(DialogInterface dialog, int id) {
 							                dialog.cancel();
+							                finish();
 							           }
 							       }).create();
 		
@@ -712,11 +713,10 @@ public class MTAactivity extends Activity {
 			sDetails = sText.substring(sText.indexOf("<HTML>"), sText.lastIndexOf("</HTML>"));
 			Log.v(TAG, "sDetails = "+sDetails);
 		}
-		
+//		
 		downdetail = new AlertDialog.Builder(this).
 				setTitle(XMLfunctions.getValue(line, "status")).
-				//setMessage(Html.fromHtml(sDetails)).
-				setMessage(Html.fromHtml(sText)).
+				setMessage(Html.fromHtml(sDetails)).
 				setIcon(iconId).
 				setPositiveButton("RANT!#?@", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
@@ -733,6 +733,7 @@ public class MTAactivity extends Activity {
 		
 		downdetail.show();
 		
+		Log.v(TAG, "sText = "+Html.fromHtml(sText));
 		isDownDetailsShow = true;
 	}
 
