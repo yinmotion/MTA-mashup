@@ -96,7 +96,7 @@ public class MapActivity extends com.google.android.maps.MapActivity implements 
 	private void addMarker(GeoPoint point){
 		if(!markerAdded){
 			mapOverlay.setGeoPoint(point);
-			OverlayItem item = new OverlayItem(point, "I'M HERE :-)", "Latitude:"+point.getLatitudeE6()*1E6+"\nLongitude:"+point.getLongitudeE6()*1E6);
+			OverlayItem item = new OverlayItem(point, "I'M HERE :-)", "Latitude: "+point.getLatitudeE6()/1E6+"\nLongitude: "+point.getLongitudeE6()/1E6);
 			mapOverlay.addOverlay(item);
 			mapOverlays.add(mapOverlay);
 			markerAdded = true;

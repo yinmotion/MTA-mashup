@@ -53,7 +53,7 @@ public class MapOverlay extends ItemizedOverlay<OverlayItem> {
 		AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
 		dialog.setTitle(item.getTitle());
 		dialog.setMessage(item.getSnippet());
-		dialog.setPositiveButton("To Google Maps", new DialogInterface.OnClickListener() {
+		dialog.setPositiveButton(R.string.to_google_maps, new DialogInterface.OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {

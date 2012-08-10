@@ -25,4 +25,5 @@
     <string name="delete">Delete</string>
     <string name="no_alert">No alert</string>
 	<string name="select_lines">Select lines</string>
+	<string name="to_google_maps">To Google Maps</string>
 </resources>

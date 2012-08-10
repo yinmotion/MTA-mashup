@@ -712,6 +712,8 @@ public class MTAactivity extends Activity {
 		if(iFirst>-1 && iLast>-1){
 			sDetails = sText.substring(sText.indexOf("<HTML>"), sText.lastIndexOf("</HTML>"));
 			Log.v(TAG, "sDetails = "+sDetails);
+		}else{
+			sDetails = "<HTML>"+sText+"</HTML>";
 		}
 //		
 		downdetail = new AlertDialog.Builder(this).
@@ -779,9 +781,9 @@ public class MTAactivity extends Activity {
 			startAbout();
 			return true;
 			
-		case R.id.alert:
-			startAlert();
-			return true;
+//		case R.id.alert:
+//			startAlert();
+//			return true;
 //			
 //		case R.id.update_setting:
 //			return true;
