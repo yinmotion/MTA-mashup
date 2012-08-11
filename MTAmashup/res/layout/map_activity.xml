@@ -8,9 +8,11 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:clickable="true"
-	    android:enabled="true"
-	    android:apiKey="0VxyBzspPbnycm23BbqDb3UZHu0zK-rtNP2mT1w"
+	    android:state_enabled="true"
+	    android:apiKey="01txL7fVJz3eoPAOZQ4TzBVMPo30DDy2XldKiVA"
 	/>
 </LinearLayout>
+<!-- debugger key: -->
+<!-- android:apiKey="0VxyBzspPbnycm23BbqDb3UZHu0zK-rtNP2mT1w" -->
  <!-- Old Macbook Pro -->
  <!--android:apiKey="01txL7fVJz3cRP8d6ATUB7jBPmshOkir9QgDShw"-->

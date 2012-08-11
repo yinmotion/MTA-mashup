@@ -172,7 +172,7 @@ public class MTAactivity extends Activity {
 	}
 	
 	private void noConnectionWarning() {
-		Log.v(TAG, "noConnectionWarning");
+		//Log.v(TAG, "noConnectionWarning");
 		// TODO Auto-generated method stub
 		AlertDialog alert = new AlertDialog.Builder(this).
 								setTitle(R.string.no_internet_connection).
@@ -243,7 +243,7 @@ public class MTAactivity extends Activity {
 	
 	protected void transToWall(){
 		if(currScreen==SCREEN_PLATFORM_WALL){
-			Log.v(TAG, "hide preloader");
+			//Log.v(TAG, "hide preloader");
 			ProgressBar refreshLoader = (ProgressBar)findViewById(R.id.refreshLoader);
 			refreshLoader.setVisibility(View.INVISIBLE);
 			
@@ -401,7 +401,7 @@ public class MTAactivity extends Activity {
 	private LinearLayout menuContainer;
 	
 	protected void onShaking() {
-		Log.v(TAG, "onShaking");
+		//Log.v(TAG, "onShaking");
 		if(downdetail!= null && downdetail.isShowing()){
 			downdetail.cancel();
 			rantIt();
@@ -413,7 +413,7 @@ public class MTAactivity extends Activity {
 	
 	@Override
 	protected void onResume() {
-		Log.v(TAG, "onResume");
+		//Log.v(TAG, "onResume");
 	    super.onResume();
 	    isRanting = false;
 	    if(sensorMgr!=null){
@@ -676,7 +676,7 @@ public class MTAactivity extends Activity {
 	            final Element line = aDowns.get(position);
 	            //tv.setText(XMLfunctions.getValue(line, "name"));
 	            final int imgId = getResources().getIdentifier("line_"+XMLfunctions.getValue(line, "name").toLowerCase(), "drawable", "com.yinmotion.MTAmashup");
-	            Log.v(TAG, "id : "+"line_"+XMLfunctions.getValue(line, "name"));
+	            //Log.v(TAG, "id : "+"line_"+XMLfunctions.getValue(line, "name"));
 	            iv.setImageResource(imgId);
 	            
 //	            
@@ -711,7 +711,7 @@ public class MTAactivity extends Activity {
 		String sDetails = "";
 		if(iFirst>-1 && iLast>-1){
 			sDetails = sText.substring(sText.indexOf("<HTML>"), sText.lastIndexOf("</HTML>"));
-			Log.v(TAG, "sDetails = "+sDetails);
+			//Log.v(TAG, "sDetails = "+sDetails);
 		}else{
 			sDetails = "<HTML>"+sText+"</HTML>";
 		}
@@ -735,7 +735,7 @@ public class MTAactivity extends Activity {
 		
 		downdetail.show();
 		
-		Log.v(TAG, "sText = "+Html.fromHtml(sText));
+		//Log.v(TAG, "sText = "+Html.fromHtml(sText));
 		isDownDetailsShow = true;
 	}
 

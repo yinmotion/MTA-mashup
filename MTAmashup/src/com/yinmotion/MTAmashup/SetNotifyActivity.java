@@ -189,15 +189,15 @@ public class SetNotifyActivity extends Activity {
 		// TODO Auto-generated method stub
 		
 		SparseBooleanArray selectedItems = lv.getCheckedItemPositions();
-		 Log.v(TAG, "selectedItems = "+selectedItems.size());
+		 //Log.v(TAG, "selectedItems = "+selectedItems.size());
 		 
 		 
 	    for (int i = 0; i < selectedItems.size(); i++) {
-	    	 Log.v(TAG, "lv = " + selectedItems.valueAt(i));
+	    	 //Log.v(TAG, "lv = " + selectedItems.valueAt(i));
 	    	
 //	        if (selectedItems.get(i)) {
 //	            String item =  lv.getAdapter().getItem(selectedItems.keyAt(i)).toString();
-//	            Log.v(TAG, "lv = "+item);
+//	            //Log.v(TAG, "lv = "+item);
 //	        }
 	    }
 	}

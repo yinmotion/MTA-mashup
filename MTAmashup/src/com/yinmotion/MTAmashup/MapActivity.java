@@ -65,7 +65,7 @@ public class MapActivity extends com.google.android.maps.MapActivity implements 
 	    
 	    mapView.showContextMenu();
 	    //mapView.setTraffic(true);
-	    Log.v(TAG, "mapView = "+mapView);
+	    //Log.v(TAG, "mapView = "+mapView);
 	    
 	    mc = this.mapView.getController();  
 	    mc.setZoom(17);  
@@ -76,7 +76,7 @@ public class MapActivity extends com.google.android.maps.MapActivity implements 
 	    
 	    mlocManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0, mlocListener);
 	    //LocationManager.NETWORK_PROVIDER
-	    Log.v(TAG, "onCreate ");
+	    //Log.v(TAG, "onCreate ");
 	    
 	    mapOverlays = mapView.getOverlays();
 	    Drawable drawable = this.getResources().getDrawable(R.drawable.map_marker);
@@ -123,7 +123,7 @@ public class MapActivity extends com.google.android.maps.MapActivity implements 
 			   int lat = (int) (location.getLatitude() * 1E6);
 			   int lng = (int) (location.getLongitude() * 1E6);
 			   
-			   Log.v(TAG, "lat = "+lat + " lng = "+lng);
+			   //Log.v(TAG, "lat = "+lat + " lng = "+lng);
 			   setCurrLocation(lat, lng);
 			   
 		}
@@ -131,7 +131,7 @@ public class MapActivity extends com.google.android.maps.MapActivity implements 
 		@Override
 		public void onProviderDisabled(String provider) {
 			// TODO Auto-generated method stub
-			Log.v(TAG, "GPS disabled");
+			//Log.v(TAG, "GPS disabled");
 			
 			gpsEnabled  = false;
 			mlocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, mlocListener);
@@ -140,7 +140,7 @@ public class MapActivity extends com.google.android.maps.MapActivity implements 
 		@Override
 		public void onProviderEnabled(String provider) {
 			// TODO Auto-generated method stub
-			Log.v(TAG, "GPS enabled");	
+			//Log.v(TAG, "GPS enabled");	
 			/*
 			Location loc;
 			if(gpsEnabled){

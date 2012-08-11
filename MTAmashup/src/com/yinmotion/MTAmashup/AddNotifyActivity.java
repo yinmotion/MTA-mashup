@@ -13,7 +13,7 @@ public class AddNotifyActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		Log.v("AddNotifyActivity", "onCreate");
+		//Log.v("AddNotifyActivity", "onCreate");
 		
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 //        

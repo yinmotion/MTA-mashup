@@ -45,7 +45,7 @@ public class LineStatusData extends Application {
 		for (int i = 0; i < nodes.getLength(); i++) {
 			Element e = (Element) nodes.item(i);
 			
-			Log.v(TAG, "status = "+ (XMLfunctions.getValue(e, "status")));
+			//Log.v(TAG, "status = "+ (XMLfunctions.getValue(e, "status")));
 			if(XMLfunctions.getValue(e, "status").equals("GOOD SERVICE")){
 				aUps.add(e);
 			}else{
@@ -65,7 +65,7 @@ public class LineStatusData extends Application {
 	public String getTimestamp(){
 		
 		NodeList eTime = (NodeList)_doc.getElementsByTagName("timestamp");
-		Log.v(TAG, "eTime = "+XMLfunctions.getElementValue(eTime.item(0)));
+		//Log.v(TAG, "eTime = "+XMLfunctions.getElementValue(eTime.item(0)));
 		return XMLfunctions.getElementValue(eTime.item(0));
 	}
 	

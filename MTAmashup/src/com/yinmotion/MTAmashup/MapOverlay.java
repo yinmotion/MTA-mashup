@@ -65,7 +65,7 @@ public class MapOverlay extends ItemizedOverlay<OverlayItem> {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("geo:"+_geoPoint.getLatitudeE6()/1E6+","+_geoPoint.getLongitudeE6()/1E6+"?z=16"));
 				//Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("geo:4.0777171e13,-7.3950142e13"));
-				Log.v("MapOverlay", "geo : "+_geoPoint.getLatitudeE6()/1E6);
+				//Log.v("MapOverlay", "geo : "+_geoPoint.getLatitudeE6()/1E6);
 				mContext.startActivity(intent);
 			}
 		});

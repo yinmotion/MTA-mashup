@@ -65,7 +65,7 @@ public class PickLineArrayAdapter extends ArrayAdapter<String> {
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					Log.v("pick line", "line : ");
+					//Log.v("pick line", "line : ");
 					CheckBox box = (CheckBox) v.findViewById(R.id.line_checkbox);
 					box.toggle();
 					
